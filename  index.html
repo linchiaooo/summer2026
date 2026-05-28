@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 暑期活動報名</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500&display=swap');
+:root{--bg:#F7F4EE;--card:#FDFBF7;--border:rgba(0,0,0,0.08);--text:#1a1a18;--muted:rgba(26,26,24,0.45);--accent:#EDE5D0;--art:#A63D2F;--art-l:#F5DDD9;--sound:#2E7D52;--sound-l:#D4EDE0;--outdoor:#1A5F9E;--outdoor-l:#D2E4F5;--err:#C0392B;--err-l:#FDECEA;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+.site-header{background:var(--accent);border-bottom:1px solid var(--border);padding:24px 40px;display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;}
+.site-title{font-family:'Noto Serif TC',serif;font-size:20px;font-weight:600;letter-spacing:0.08em;}
+.site-contact{font-size:12px;color:var(--muted);font-weight:300;}
+.container{max-width:720px;margin:0 auto;padding:40px 20px 80px;}
+.step{display:none;}.step.active{display:block;}
+.steps-wrap{margin-bottom:40px;}
+.steps-row{display:flex;align-items:center;}
+.step-item{display:flex;flex-direction:column;align-items:center;gap:6px;}
+.step-dot{width:30px;height:30px;border-radius:50%;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;color:var(--muted);transition:all .3s;flex-shrink:0;}
+.step-dot.active{background:var(--text);color:#fff;}.step-dot.done{background:var(--sound);color:#fff;}
+.step-line{flex:1;height:1px;background:var(--border);}
+.step-label{font-size:11px;color:var(--muted);}
+h2{font-family:'Noto Serif TC',serif;font-size:26px;font-weight:600;margin-bottom:8px;}
+.step-desc{font-size:13px;color:var(--muted);margin-bottom:32px;line-height:1.7;}
+.field-group{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px 28px;margin-bottom:16px;}
+.fg-title{font-size:11px;font-weight:500;letter-spacing:0.15em;color:var(--muted);margin-bottom:18px;}
+.field{margin-bottom:16px;}.field:last-child{margin-bottom:0;}
+label{display:block;font-size:13px;font-weight:500;margin-bottom:6px;}
+.req{color:var(--art);margin-left:2px;}.hint{font-size:11px;font-weight:300;color:var(--muted);margin-left:6px;}
+input[type=text],input[type=email],input[type=tel],select,textarea{width:100%;padding:10px 13px;border:1px solid var(--border);border-radius:10px;font-family:'Noto Sans TC',sans-serif;font-size:13px;background:#fff;color:var(--text);outline:none;transition:border-color .2s;-webkit-appearance:none;}
+input:focus,select:focus,textarea:focus{border-color:rgba(0,0,0,0.28);}
+.err-msg{font-size:11px;color:var(--err);margin-top:4px;display:none;}.err-msg.show{display:block;}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.radio-group{display:flex;gap:16px;flex-wrap:wrap;}
+.radio-item{display:flex;align-items:center;gap:7px;cursor:pointer;font-size:13px;}
+.radio-item input{width:16px;height:16px;cursor:pointer;accent-color:var(--text);}
+.identity-box{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:0;}
+.identity-opt{padding:16px 22px;border-bottom:1px solid var(--border);cursor:pointer;display:flex;align-items:flex-start;gap:12px;transition:background .15s;}
+.identity-opt:last-child{border-bottom:none;}.identity-opt:hover{background:rgba(0,0,0,0.02);}
+.identity-opt input[type=radio]{width:17px;height:17px;margin-top:2px;flex-shrink:0;accent-color:var(--text);cursor:pointer;}
+.identity-label{font-size:14px;font-weight:500;margin-bottom:2px;}.identity-sub{font-size:12px;color:var(--muted);font-weight:300;}
+.identity-extra{padding:0 22px 16px;display:none;}.identity-extra.show{display:block;}
+.course-cards{display:flex;flex-direction:column;gap:10px;margin-bottom:20px;}
+.course-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 22px;}
+.cc-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;}
+.cc-info{flex:1;}
+.cc-tag{font-size:10px;font-weight:500;letter-spacing:0.15em;padding:3px 9px;border-radius:20px;display:inline-block;margin-bottom:7px;}
+.tag-art{background:var(--art-l);color:#7A2D22;}.tag-sound{background:var(--sound-l);color:#1E5C39;}.tag-outdoor{background:var(--outdoor-l);color:#144A7A;}
+.cc-name{font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:3px;}
+.cc-sub{font-size:12px;color:var(--muted);margin-bottom:6px;}
+.cc-meta{font-size:12px;color:var(--muted);line-height:1.8;}
+.cc-meta strong{color:var(--text);font-weight:500;}
+.cc-add-btn{flex-shrink:0;padding:8px 16px;border-radius:10px;border:1px solid var(--border);background:transparent;font-family:'Noto Sans TC',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;white-space:nowrap;}
+.cc-add-btn:hover{background:var(--text);color:#fff;border-color:var(--text);}
+.cart-items-title{font-size:11px;font-weight:500;letter-spacing:0.15em;color:var(--muted);margin-bottom:10px;}
+.cart-item{background:#fff;border:1px solid var(--border);border-radius:12px;padding:14px 18px;margin-bottom:8px;display:flex;align-items:center;gap:12px;}
+.ci-info{flex:1;}
+.ci-course{font-size:13px;font-weight:500;margin-bottom:3px;}
+.ci-student{font-size:12px;color:var(--muted);}
+.ci-price{font-size:15px;font-weight:600;white-space:nowrap;}
+.ci-price.art{color:var(--art);}.ci-price.sound{color:var(--sound);}.ci-price.outdoor{color:var(--outdoor);}
+.ci-remove{width:28px;height:28px;border-radius:50%;border:none;background:transparent;cursor:pointer;color:var(--muted);font-size:18px;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;}
+.ci-remove:hover{background:var(--err-l);color:var(--err);}
+.price-summary{background:var(--text);color:#fff;border-radius:14px;padding:22px 26px;margin-top:16px;}
+.ps-title{font-size:11px;letter-spacing:0.15em;color:rgba(255,255,255,0.45);margin-bottom:14px;}
+.ps-line{display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px;color:rgba(255,255,255,0.7);}
+.ps-line .name{font-weight:300;}.ps-line .amt{font-weight:500;}
+.ps-total{display:flex;justify-content:space-between;font-size:18px;font-weight:600;color:#fff;padding-top:12px;margin-top:4px;border-top:1px solid rgba(255,255,255,0.15);}
+.ps-note{font-size:11px;color:rgba(255,255,255,0.35);margin-top:10px;line-height:1.7;}
+.modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.45);z-index:100;display:none;align-items:flex-end;justify-content:center;}
+.modal-overlay.show{display:flex;}
+.modal{background:#fff;border-radius:20px 20px 0 0;padding:28px 22px 40px;width:100%;max-width:520px;max-height:92vh;overflow-y:auto;}
+.modal-title{font-family:'Noto Serif TC',serif;font-size:19px;font-weight:600;margin-bottom:20px;}
+.modal-btns{display:flex;gap:10px;margin-top:20px;}
+.confirm-box{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px 26px;margin-bottom:16px;}
+.confirm-row{display:flex;gap:12px;font-size:13px;line-height:2.1;border-bottom:1px solid var(--border);padding:6px 0;}
+.confirm-row:first-child{padding-top:0;}.confirm-row:last-child{border-bottom:none;padding-bottom:0;}
+.confirm-label{color:var(--muted);font-weight:300;min-width:78px;flex-shrink:0;}
+.payment-box{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:14px;}
+.pm{padding:18px 22px;border-bottom:1px solid var(--border);}.pm:last-child{border-bottom:none;}
+.pm-title{font-size:14px;font-weight:500;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.pm-icon{width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;}
+.icon-post{background:#E8372B;color:#fff;}.icon-bank{background:#003087;color:#fff;}.icon-line{background:#00B900;color:#fff;}
+.pm-detail{font-size:13px;line-height:2;color:var(--muted);}
+.pm-detail strong{color:var(--text);font-weight:500;}
+.payment-note{background:#FFF8EE;border-radius:10px;padding:14px 18px;font-size:13px;line-height:1.9;color:#5A3A00;margin-top:4px;}
+.outdoor-notice{background:var(--outdoor-l);border-radius:12px;padding:14px 18px;font-size:13px;line-height:1.8;color:#144A7A;margin-bottom:14px;}
+.btn{display:flex;align-items:center;justify-content:center;padding:13px 28px;border-radius:12px;font-family:'Noto Sans TC',sans-serif;font-size:14px;font-weight:500;border:none;cursor:pointer;transition:all .2s;width:100%;}
+.btn-primary{background:var(--text);color:#fff;}.btn-primary:hover{background:#333;}.btn-primary:disabled{opacity:.35;cursor:not-allowed;}
+.btn-secondary{background:transparent;border:1px solid var(--border);color:var(--muted);margin-bottom:10px;}
+.btn-secondary:hover{border-color:rgba(0,0,0,0.2);color:var(--text);}
+.btn-sm{padding:9px 20px;font-size:13px;border-radius:10px;width:auto;flex:1;}
+.success-box{text-align:center;padding:48px 20px;}
+.success-icon{width:68px;height:68px;border-radius:50%;background:var(--sound-l);display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 20px;}
+.success-title{font-family:'Noto Serif TC',serif;font-size:26px;font-weight:600;margin-bottom:12px;}
+.success-desc{font-size:14px;color:var(--muted);line-height:1.9;}
+.divider{height:1px;background:var(--border);margin:22px 0;}
+.mt12{margin-top:12px;}
+@media(max-width:480px){.site-header{padding:18px 16px;}.container{padding:28px 14px 60px;}.field-row{grid-template-columns:1fr;}.field-group,.confirm-box{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="site-header">
+  <div class="site-title">2026 暑期活動報名</div>
+  <div class="site-contact">林巧　linchiaooo.hs11@nycu.edu.tw　｜　0935-877-214</div>
+</div>
+<div class="container">
+  <div class="steps-wrap">
+    <div class="steps-row">
+      <div class="step-item"><div class="step-dot active" id="dot1">1</div><div class="step-label">活動選擇</div></div>
+      <div class="step-line"></div>
+      <div class="step-item"><div class="step-dot" id="dot2">2</div><div class="step-label">聯絡資料</div></div>
+      <div class="step-line"></div>
+      <div class="step-item"><div class="step-dot" id="dot3">3</div><div class="step-label">確認付款</div></div>
+      <div class="step-line"></div>
+      <div class="step-item"><div class="step-dot" id="dot4">4</div><div class="step-label">完成</div></div>
+    </div>
+  </div>
+
+  <!-- STEP 1 -->
+  <div class="step active" id="step1">
+    <h2>選擇活動</h2>
+    <p class="step-desc">請先選擇身份別，再將想報名的課程加入購物車。可同時為多位學員報名。</p>
+    <div class="field-group" style="margin-bottom:24px;">
+      <div class="fg-title">報名身份別</div>
+      <div class="identity-box">
+        <label class="identity-opt"><input type="radio" name="identity" value="general" checked onchange="onIdentityChange()"><div><div class="identity-label">一般報名</div><div class="identity-sub">非新店行道會會友</div></div></label>
+        <label class="identity-opt"><input type="radio" name="identity" value="member" onchange="onIdentityChange()"><div><div class="identity-label">新店行道會會友</div><div class="identity-sub">享會友優惠價</div></div></label>
+        <label class="identity-opt"><input type="radio" name="identity" value="worker" onchange="onIdentityChange()"><div><div class="identity-label">教會全職同工</div><div class="identity-sub">享全職同工感恩優惠價</div></div></label>
+      </div>
+      <div class="identity-extra" id="member-extra">
+        <div class="field mt12"><label>所屬區 <span class="req">*</span></label><input type="text" id="church-group" placeholder="請填寫所屬區"></div>
+      </div>
+    </div>
+    <div style="margin-bottom:12px;font-size:11px;font-weight:500;letter-spacing:0.15em;color:var(--muted);">可報名活動</div>
+    <div class="course-cards">
+      <div class="course-card"><div class="cc-top"><div class="cc-info"><div class="cc-tag tag-art">國中以上 ／ 小六可報</div><div class="cc-name">《我是大藝術家！》</div><div class="cc-sub">聲音互動科技藝術體驗營</div><div class="cc-meta"><strong>7/6（日）– 7/10（四）</strong>　09:00–17:00</div></div><button class="cc-add-btn" onclick="openModal('art')">＋ 加入</button></div></div>
+      <div class="course-card"><div class="cc-top"><div class="cc-info"><div class="cc-tag tag-sound">中年級以上</div><div class="cc-name">《我是說書人！》</div><div class="cc-sub">有聲書錄製體驗營</div><div class="cc-meta"><strong>7/27（日）– 7/31（四）</strong>　09:00–17:00</div></div><button class="cc-add-btn" onclick="openModal('sound')">＋ 加入</button></div></div>
+      <div class="course-card"><div class="cc-top"><div class="cc-info"><div class="cc-tag tag-outdoor">小一至國中，全齡</div><div class="cc-name">戶外教學｜藝術與生活探索</div><div class="cc-sub">確認成團後才收費</div><div class="cc-meta"><strong>7/11、7/24、7/25、8/1、8/15、8/29</strong><br>11:00 出發，時間依活動而定</div></div><button class="cc-add-btn" onclick="openModal('outdoor')">＋ 加入</button></div></div>
+    </div>
+    <div id="cart-section" style="display:none;">
+      <div class="cart-items-title">已加入的報名項目</div>
+      <div id="cart-items"></div>
+      <div class="price-summary"><div class="ps-title">費用預覽</div><div id="ps-lines"></div><div class="ps-total"><span>合計</span><span id="ps-total-amt">0 元</span></div><div class="ps-note">＊ 戶外教學確認成團後才收費<br>＊ 午餐服務 600 元 / 五天（下一步可選購）</div></div>
+    </div>
+    <div style="margin-top:24px;"><button class="btn btn-primary" id="btn-next1" onclick="goStep(2)" disabled>下一步：填寫聯絡資料</button></div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step" id="step2">
+    <h2>聯絡資料</h2>
+    <p class="step-desc">請填寫家長聯絡資料。</p>
+    <div class="field-group">
+      <div class="fg-title">家長資料</div>
+      <div class="field"><label>家長姓名 <span class="req">*</span></label><input type="text" id="parent-name" placeholder="請填寫"><div class="err-msg" id="err-parent-name">請填寫家長姓名</div></div>
+      <div class="field-row">
+        <div class="field"><label>聯絡電話 <span class="req">*</span></label><input type="tel" id="parent-phone" placeholder="09xx-xxx-xxx"><div class="err-msg" id="err-parent-phone">請填寫聯絡電話</div></div>
+        <div class="field"><label>電子信箱 <span class="req">*</span><span class="hint">確認信將寄至此</span></label><input type="email" id="parent-email" placeholder="example@email.com"><div class="err-msg" id="err-parent-email">請填寫正確的電子信箱</div></div>
+      </div>
+    </div>
+    <div class="field-group"><div class="fg-title">備註</div><div class="field"><label>其他說明 <span class="hint">無則留空</span></label><textarea id="notes" rows="3" placeholder="任何需要讓老師知道的事情…" style="resize:vertical"></textarea></div></div>
+    <button class="btn btn-secondary" onclick="goStep(1)">← 返回</button>
+    <button class="btn btn-primary" onclick="validateAndGoStep3()">下一步：確認與付款</button>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step" id="step3">
+    <h2>確認報名資料</h2>
+    <p class="step-desc">請確認以下資料無誤，再完成匯款。</p>
+    <div class="confirm-box" id="confirm-content"></div>
+    <div class="price-summary"><div class="ps-title">費用明細</div><div id="confirm-ps-lines"></div><div class="ps-total"><span>應付合計</span><span id="confirm-total">0 元</span></div><div class="ps-note" id="confirm-ps-note"></div></div>
+    <div style="margin-top:12px;"></div>
+    <div class="outdoor-notice" id="outdoor-notice" style="display:none;">📋 戶外教學確認成團後，老師將另行通知付款方式與金額。本次無需先行付款。</div>
+    <div id="payment-section">
+      <div style="font-size:15px;font-weight:600;margin:18px 0 12px;">付款方式</div>
+      <div class="payment-box">
+        <div class="pm"><div class="pm-title"><div class="pm-icon icon-post">郵</div>郵局匯款</div><div class="pm-detail">銀行代號：<strong>700</strong><br>帳號：<strong>0041-431-0602235</strong><br>戶名：林巧</div></div>
+        <div class="pm"><div class="pm-title"><div class="pm-icon icon-bank">豐</div>永豐銀行匯款</div><div class="pm-detail">銀行代號：<strong>807</strong><br>帳號：<strong>20001800548607</strong><br>戶名：林巧</div></div>
+        <div class="pm"><div class="pm-title"><div class="pm-icon icon-line">L</div>Line Pay</div><div class="pm-detail">請先加 Line 好友：<strong>0935877214</strong><br>匯款後請留下課程名稱及學生姓名</div></div>
+      </div>
+      <div class="payment-note">⚠️ 請於報名後 <strong>3 天內</strong>完成匯款<br>匯款時請備注：<strong>課程名稱 ＋ 學生姓名</strong><br>匯款完成後，老師將於 <strong>1 個工作天內</strong>寄送報名完成通知至您的電子信箱。<br>若未收到確認郵件，請聯繫：<strong>0935-877-214 / linchiaooo.hs11@nycu.edu.tw</strong></div>
+    </div>
+    <div class="divider"></div>
+    <button class="btn btn-secondary" onclick="goStep(2)">← 返回修改</button>
+    <button class="btn btn-primary" id="btn-submit" onclick="submitForm()">確認送出報名</button>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step" id="step4">
+    <div class="success-box">
+      <div class="success-icon">✓</div>
+      <div class="success-title">報名資料已送出！</div>
+      <div class="success-desc">感謝您的報名！<br>請於 <strong>3 天內</strong>完成匯款，並備注課程名稱及學生姓名。<br>匯款完成後，老師將於 1 個工作天內寄出報名完成通知。<br><br>若未收到確認郵件，歡迎聯繫：<br><strong>林巧　0935-877-214</strong><br><strong>linchiaooo.hs11@nycu.edu.tw</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <div class="modal-title" id="modal-title">加入報名</div>
+    <div id="modal-body"></div>
+    <div class="modal-btns">
+      <button class="btn btn-secondary btn-sm" onclick="closeModal()">取消</button>
+      <button class="btn btn-primary btn-sm" onclick="addToCart()">加入購物車</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const PRICES={general:{art:4500,sound:4000,outdoor:3500},member:{art:3500,sound:2800,outdoor:3000},worker:{art:2800,sound:2000,outdoor:3000}};
+const CNAMES={art:'《我是大藝術家！》',sound:'《我是說書人！》',outdoor:'戶外教學'};
+let cart=[],currentType='',cid=0;
+
+function getId(){return document.querySelector('input[name="identity"]:checked').value;}
+
+function onIdentityChange(){
+  const id=getId();
+  document.getElementById('member-extra').className='identity-extra'+(id==='member'?' show':'');
+  recalc();
+}
+
+function calcPrices(){
+  const id=getId(),p=PRICES[id];
+  const courses=cart.filter(i=>i.type!=='outdoor');
+  const sorted=[...courses].sort((a,b)=>p[b.type]-p[a.type]);
+  const res={};
+  cart.forEach(item=>{
+    if(item.type==='outdoor'){res[item.id]={price:p.outdoor,discount:false,outdoor:true};}
+    else{const rank=sorted.findIndex(s=>s.id===item.id);const disc=courses.length>1&&rank>0;res[item.id]={price:disc?Math.round(p[item.type]*0.85):p[item.type],discount:disc,outdoor:false};}
+  });
+  if(courses.length>0){cart.filter(i=>i.type==='outdoor').forEach(item=>{res[item.id].price=Math.round(p.outdoor*0.85);res[item.id].discount=true;});}
+  return res;
+}
+
+function recalc(){
+  const pm=calcPrices();
+  const cs=document.getElementById('cart-section');
+  cs.style.display=cart.length>0?'block':'none';
+  document.getElementById('btn-next1').disabled=cart.length===0;
+  document.getElementById('cart-items').innerHTML=cart.map(item=>{
+    const p=pm[item.id];
+    return `<div class="cart-item"><div class="ci-info"><div class="ci-course">${CNAMES[item.type]}${p.discount?' <span style="font-size:10px;background:#FFF8EE;color:#854F0B;padding:1px 6px;border-radius:4px;">85折</span>':''}</div><div class="ci-student">學員：${item.name}　${item.grade}</div></div><div class="ci-price ${item.type}">${p.outdoor?'成團後收費':p.price.toLocaleString()+' 元'}</div><button class="ci-remove" onclick="removeCart(${item.id})">×</button></div>`;
+  }).join('');
+  let lines='',total=0;
+  cart.forEach(item=>{const p=pm[item.id];if(p.outdoor){lines+=`<div class="ps-line"><span class="name">${CNAMES[item.type]}（${item.name}）</span><span class="amt">成團後收費</span></div>`;}else{lines+=`<div class="ps-line"><span class="name">${CNAMES[item.type]}（${item.name}）${p.discount?' 85折':''}</span><span class="amt">${p.price.toLocaleString()} 元</span></div>`;total+=p.price;}});
+  document.getElementById('ps-lines').innerHTML=lines;
+  const ho=cart.some(i=>i.type==='outdoor');
+  document.getElementById('ps-total-amt').textContent=total.toLocaleString()+' 元'+(ho?'＋戶外教學':'');
+  window._pdata={pm,total};
+}
+
+function removeCart(id){cart=cart.filter(i=>i.id!==id);recalc();}
+
+function openModal(type){
+  currentType=type;
+  document.getElementById('modal-title').textContent='加入 '+CNAMES[type];
+  let html=`<div class="field"><label>學員姓名 <span class="req">*</span></label><input type="text" id="m-name" placeholder="請填寫學員姓名"><div class="err-msg" id="m-err-name">請填寫學員姓名</div></div>
+  <div class="field-row"><div class="field"><label>就讀年級 <span class="req">*</span></label><select id="m-grade"><option value="">請選擇</option><option>國小一年級</option><option>國小二年級</option><option>國小三年級</option><option>國小四年級</option><option>國小五年級</option><option>國小六年級</option><option>國中一年級</option><option>國中二年級</option><option>國中三年級</option></select><div class="err-msg" id="m-err-grade">請選擇年級</div></div>
+  <div class="field"><label>性別</label><select id="m-gender"><option value="">不填</option><option>男</option><option>女</option></select></div></div>`;
+  if(type==='art'||type==='sound'){
+    html+=`<div class="field"><label>是否需要訂購午餐與點心？<span class="hint">600 元 / 五天</span></label><div class="radio-group"><label class="radio-item"><input type="radio" name="m-lunch" value="yes" onchange="toggleML()"> 需要訂購</label><label class="radio-item"><input type="radio" name="m-lunch" value="no" checked onchange="toggleML()"> 自備</label></div></div>
+    <div id="m-lunch-d" style="display:none"><div class="field"><label>葷素偏好</label><div class="radio-group"><label class="radio-item"><input type="radio" name="m-diet" value="葷食"> 葷食</label><label class="radio-item"><input type="radio" name="m-diet" value="素食"> 素食</label></div></div><div class="field"><label>過敏原或飲食禁忌 <span class="hint">無則留空</span></label><input type="text" id="m-allergy" placeholder="例如：花生、海鮮…"></div></div>`;
+  }
+  if(type==='sound'){
+    html+=`<div class="field"><label>是否能自備 iPad？</label><div class="radio-group"><label class="radio-item"><input type="radio" name="m-ipad" value="能自備"> 能自備</label><label class="radio-item"><input type="radio" name="m-ipad" value="無法自備" checked> 無法自備（不影響參與）</label></div></div>
+    <div class="field"><label>是否能自備有線耳機？</label><div class="radio-group"><label class="radio-item"><input type="radio" name="m-earphone" value="能自備"> 能自備</label><label class="radio-item"><input type="radio" name="m-earphone" value="無法自備" checked> 無法自備（不影響參與）</label></div></div>`;
+  }
+  if(type==='outdoor'){
+    html+=`<div class="field" style="background:#EEF4FB;border-radius:10px;padding:14px 16px;"><div style="font-size:12px;color:#144A7A;margin-bottom:12px;">以下資料供活動保險申請使用，請務必填寫正確。</div>
+    <div class="field"><label>出生年月日 <span class="req">*</span><span class="hint">西元，例：2015/03/22</span></label><input type="text" id="m-bday" placeholder="YYYY/MM/DD"><div class="err-msg" id="m-err-bday">請填寫出生年月日</div></div>
+    <div class="field" style="margin-bottom:0;"><label>身分證字號 <span class="req">*</span></label><input type="text" id="m-idnum" placeholder="A123456789"><div class="err-msg" id="m-err-idnum">請填寫身分證字號</div></div></div>`;
+  }
+  document.getElementById('modal-body').innerHTML=html;
+  document.getElementById('modal-overlay').className='modal-overlay show';
+}
+
+function toggleML(){const v=document.querySelector('input[name="m-lunch"]:checked')?.value;const el=document.getElementById('m-lunch-d');if(el)el.style.display=v==='yes'?'block':'none';}
+function closeModal(){document.getElementById('modal-overlay').className='modal-overlay';}
+function closeModalOutside(e){if(e.target===document.getElementById('modal-overlay'))closeModal();}
+
+function addToCart(){
+  const name=document.getElementById('m-name')?.value.trim();
+  const grade=document.getElementById('m-grade')?.value;
+  let ok=true;
+  if(!name){document.getElementById('m-err-name').className='err-msg show';ok=false;}else document.getElementById('m-err-name').className='err-msg';
+  if(!grade){document.getElementById('m-err-grade').className='err-msg show';ok=false;}else document.getElementById('m-err-grade').className='err-msg';
+  if(currentType==='outdoor'){
+    const bday=document.getElementById('m-bday')?.value.trim();
+    const idnum=document.getElementById('m-idnum')?.value.trim();
+    if(!bday){document.getElementById('m-err-bday').className='err-msg show';ok=false;}else document.getElementById('m-err-bday').className='err-msg';
+    if(!idnum){document.getElementById('m-err-idnum').className='err-msg show';ok=false;}else document.getElementById('m-err-idnum').className='err-msg';
+  }
+  if(!ok)return;
+  const lunch=document.querySelector('input[name="m-lunch"]:checked')?.value||'no';
+  const diet=document.querySelector('input[name="m-diet"]:checked')?.value||'';
+  const allergy=document.getElementById('m-allergy')?.value||'';
+  const ipad=document.querySelector('input[name="m-ipad"]:checked')?.value||'';
+  const earphone=document.querySelector('input[name="m-earphone"]:checked')?.value||'';
+  const bday=document.getElementById('m-bday')?.value||'';
+  const idnum=document.getElementById('m-idnum')?.value||'';
+  cart.push({id:++cid,type:currentType,name,grade,gender:document.getElementById('m-gender')?.value||'',lunch,diet,allergy,ipad,earphone,bday,idnum});
+  closeModal();recalc();
+}
+
+function goStep(n){
+  [1,2,3,4].forEach(i=>{
+    document.getElementById('step'+i).className='step'+(i===n?' active':'');
+    const d=document.getElementById('dot'+i);
+    if(i<n)d.className='step-dot done';else if(i===n)d.className='step-dot active';else d.className='step-dot';
+  });
+  if(n===3)buildConfirm();
+  window.scrollTo(0,0);
+}
+
+function validateAndGoStep3(){
+  let ok=true;
+  const pn=document.getElementById('parent-name').value.trim();
+  const pp=document.getElementById('parent-phone').value.trim();
+  const pe=document.getElementById('parent-email').value.trim();
+  if(!pn){document.getElementById('err-parent-name').className='err-msg show';ok=false;}else document.getElementById('err-parent-name').className='err-msg';
+  if(!pp){document.getElementById('err-parent-phone').className='err-msg show';ok=false;}else document.getElementById('err-parent-phone').className='err-msg';
+  if(!pe||!pe.includes('@')){document.getElementById('err-parent-email').className='err-msg show';ok=false;}else document.getElementById('err-parent-email').className='err-msg';
+  if(getId()==='member'&&!document.getElementById('church-group')?.value.trim()){alert('請填寫所屬區');ok=false;}
+  if(!ok){window.scrollTo(0,0);return;}
+  goStep(3);
+}
+
+function buildConfirm(){
+  const id=getId();
+  const idL={general:'一般報名',member:'新店行道會會友',worker:'教會全職同工'};
+  const cg=document.getElementById('church-group')?.value||'';
+  const pn=document.getElementById('parent-name').value;
+  const pp=document.getElementById('parent-phone').value;
+  const pe=document.getElementById('parent-email').value;
+  const notes=document.getElementById('notes').value;
+  const pm=calcPrices();
+  let html=`<div class="confirm-row"><span class="confirm-label">身份別</span><span>${idL[id]}${cg?' ／ '+cg:''}</span></div>
+  <div class="confirm-row"><span class="confirm-label">家長姓名</span><span>${pn}</span></div>
+  <div class="confirm-row"><span class="confirm-label">聯絡電話</span><span>${pp}</span></div>
+  <div class="confirm-row"><span class="confirm-label">電子信箱</span><span>${pe}</span></div>
+  <div class="confirm-row"><span class="confirm-label">報名項目</span><span>${cart.map(i=>i.name+'（'+CNAMES[i.type]+'）').join('<br>')}</span></div>`;
+  if(notes)html+=`<div class="confirm-row"><span class="confirm-label">備註</span><span>${notes}</span></div>`;
+  document.getElementById('confirm-content').innerHTML=html;
+  let lines='',total=0;
+  const ho=cart.some(i=>i.type==='outdoor');
+  cart.forEach(item=>{const p=pm[item.id];if(p.outdoor){lines+=`<div class="ps-line"><span class="name">${CNAMES[item.type]}（${item.name}）</span><span class="amt">成團後收費</span></div>`;}else{lines+=`<div class="ps-line"><span class="name">${CNAMES[item.type]}（${item.name}）${p.discount?' 85折':''}</span><span class="amt">${p.price.toLocaleString()} 元</span></div>`;total+=p.price;}});
+  document.getElementById('confirm-ps-lines').innerHTML=lines;
+  document.getElementById('confirm-total').textContent=total.toLocaleString()+' 元'+(ho?'＋戶外教學':'');
+  document.getElementById('confirm-ps-note').innerHTML=ho?'＊ 戶外教學確認成團後另行通知收費':'';
+  document.getElementById('outdoor-notice').style.display=ho?'block':'none';
+  document.getElementById('payment-section').style.display=cart.every(i=>i.type==='outdoor')?'none':'block';
+}
+
+async function submitForm(){
+  const btn=document.getElementById('btn-submit');
+  btn.disabled=true;btn.textContent='送出中…';
+  const id=getId();
+  const idL={general:'一般報名',member:'新店行道會會友',worker:'教會全職同工'};
+  const pm=calcPrices();let total=0;
+  cart.filter(i=>i.type!=='outdoor').forEach(i=>{total+=pm[i.id].price;});
+  const summary=cart.map(item=>{
+    const p=pm[item.id];
+    let s=`${CNAMES[item.type]}／${item.name}（${item.grade}）：${p.outdoor?'成團後收費':p.price.toLocaleString()+' 元'}`;
+    if(item.lunch==='yes')s+=`｜午餐：${item.diet}${item.allergy?' 過敏：'+item.allergy:''}`;
+    if(item.ipad)s+=`｜iPad：${item.ipad}`;
+    if(item.earphone)s+=`｜耳機：${item.earphone}`;
+    if(item.bday)s+=`｜生日：${item.bday}｜身分證：${item.idnum}`;
+    return s;
+  }).join('\n');
+  const cg=document.getElementById('church-group')?.value||'';
+  const data={'身份別':idL[id]+(cg?' ／ '+cg:''),'家長姓名':document.getElementById('parent-name').value,'聯絡電話':document.getElementById('parent-phone').value,'電子信箱':document.getElementById('parent-email').value,'報名內容':summary,'合計費用':total.toLocaleString()+' 元'+(cart.some(i=>i.type==='outdoor')?'＋戶外教學':''),'備註':document.getElementById('notes').value||'無'};
+  try{
+    const res=await fetch('https://formspree.io/f/maqkverk',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});
+    if(res.ok){goStep(4);}else{alert('送出失敗，請重試或直接聯繫老師。');btn.disabled=false;btn.textContent='確認送出報名';}
+  }catch(e){alert('網路錯誤，請重試或直接聯繫老師。');btn.disabled=false;btn.textContent='確認送出報名';}
+}
+</script>
+</body>
+</html>
