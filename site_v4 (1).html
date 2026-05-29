@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 科技藝術夏令營｜林巧</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;900&family=Noto+Sans+TC:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap');
+:root{--bg:#EEF6F8;--bg2:#E4F2F5;--grid:#C5DDE3;--text:#1a2a2e;--muted:rgba(26,42,46,0.45);--white:#F8FDFE;--art:#A63D2F;--art-l:#F5DDD9;--sound:#2E7D52;--sound-l:#D4EDE0;--outdoor:#1A5F9E;--outdoor-l:#D2E4F5;--accent:#C8E8EE;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
+.grid-bg{background-color:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:40px 40px;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(238,246,248,0.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--grid);padding:14px 40px;display:flex;justify-content:space-between;align-items:center;}
+.nav-title{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.05em;}
+.nav-links{display:flex;gap:24px;}
+.nav-links a{font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:0.08em;transition:color .2s;}
+.nav-links a:hover{color:var(--text);}
+#hero{min-height:100vh;position:relative;overflow:hidden;padding-top:60px;display:flex;align-items:center;justify-content:center;}
+.desktop{position:absolute;inset:0;pointer-events:none;}
+.di{position:absolute;display:flex;flex-direction:column;align-items:center;gap:0;user-select:none;}
+.di img{display:block;filter:drop-shadow(0 2px 8px rgba(0,0,0,0.08));}
+.hero-center{z-index:2;text-align:center;position:relative;padding:40px 20px;}
+.hero-eyebrow{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.3em;color:var(--muted);margin-bottom:20px;display:block;}
+.hero-title{font-family:'Noto Serif TC',serif;font-size:clamp(48px,8vw,96px);font-weight:900;line-height:1.05;letter-spacing:-0.02em;margin-bottom:12px;}
+.hero-title .t1{display:block;color:var(--text);}
+.hero-title .t2{display:block;color:#1A7A9E;}
+.hero-byline{font-family:'Space Mono',monospace;font-size:12px;color:var(--muted);letter-spacing:0.15em;margin-bottom:36px;}
+.hero-pills{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:40px;}
+.pill{background:var(--white);border:1px solid var(--grid);border-radius:100px;padding:8px 18px;font-family:'Space Mono',monospace;font-size:11px;color:var(--text);letter-spacing:0.05em;}
+.hero-btn{display:inline-flex;align-items:center;gap:8px;background:var(--text);color:#fff;padding:14px 36px;border-radius:100px;text-decoration:none;font-size:14px;font-weight:500;transition:all .2s;letter-spacing:0.05em;}
+.hero-btn:hover{background:#2a4a50;transform:translateY(-2px);}
+.section-wrap{padding:100px 40px;max-width:1100px;margin:0 auto;}
+.sec-label{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.3em;color:var(--muted);margin-bottom:48px;display:flex;align-items:center;gap:12px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--grid);}
+#about-wrap{background:var(--white);border-top:1px solid var(--grid);}
+.about-grid{display:grid;grid-template-columns:260px 1fr;gap:60px;align-items:start;}
+.about-photo{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:4px;}
+.about-name{font-family:'Noto Serif TC',serif;font-size:40px;font-weight:900;margin-bottom:4px;}
+.about-name-en{font-family:'Space Mono',monospace;font-size:13px;color:var(--muted);letter-spacing:0.2em;margin-bottom:28px;}
+.about-p{font-size:14px;line-height:2;color:rgba(26,42,46,0.8);margin-bottom:16px;}
+.about-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+.atag{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;padding:4px 12px;border:1px solid var(--grid);border-radius:100px;color:var(--muted);}
+#courses-wrap{background:var(--bg2);border-top:1px solid var(--grid);}
+.course-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+.course-card{background:var(--white);border-radius:18px;padding:32px;border:1px solid var(--grid);position:relative;overflow:hidden;}
+.cc-bar{position:absolute;top:0;left:0;right:0;height:3px;}
+.bar-art{background:var(--art);}.bar-sound{background:var(--sound);}.bar-outdoor{background:var(--outdoor);}
+.cc-full{grid-column:1/-1;}
+.cc-tag{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.15em;padding:3px 10px;border-radius:100px;display:inline-block;margin-bottom:14px;}
+.tag-art{background:var(--art-l);color:#7A2D22;}.tag-sound{background:var(--sound-l);color:#1E5C39;}.tag-outdoor{background:var(--outdoor-l);color:#144A7A;}
+.cc-name{font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;margin-bottom:5px;}
+.cc-sub{font-size:12px;color:var(--muted);margin-bottom:14px;}
+.cc-desc{font-size:13px;line-height:1.9;color:rgba(26,42,46,0.7);margin-bottom:18px;}
+.cc-meta{border-top:1px solid var(--grid);padding-top:14px;display:flex;flex-direction:column;gap:6px;}
+.cc-row{display:flex;justify-content:space-between;font-size:12px;}
+.cc-label{color:var(--muted);font-weight:300;}.cc-val{font-weight:500;}
+.p-art{color:var(--art);font-size:15px;font-weight:600;}.p-sound{color:var(--sound);font-size:15px;font-weight:600;}.p-outdoor{color:var(--outdoor);font-size:15px;font-weight:600;}
+.outdoor-2col{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.place-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;}
+.place-chip{font-size:11px;padding:3px 10px;background:rgba(26,95,158,0.08);color:#144A7A;border-radius:100px;font-family:'Space Mono',monospace;}
+.lunch-note{background:var(--white);border-radius:10px;padding:16px 22px;border:1px solid var(--grid);font-size:13px;color:var(--muted);line-height:1.8;}
+#discount-wrap{background:var(--white);border-top:1px solid var(--grid);}
+.dc-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+.dc-card{border-radius:14px;padding:26px 28px;}
+.dc-1{background:#FFF8EE;}.dc-2{background:var(--sound-l);}.dc-3{background:var(--accent);}
+.dc-num{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.2em;color:var(--muted);margin-bottom:10px;}
+.dc-title{font-family:'Noto Serif TC',serif;font-size:17px;font-weight:600;margin-bottom:4px;}
+.dc-sub{font-size:11px;color:var(--muted);margin-bottom:12px;}
+.dc-desc{font-size:13px;line-height:1.9;color:rgba(26,42,46,0.75);}
+.dc-note{font-size:11px;color:var(--muted);margin-top:8px;font-style:italic;}
+#register-wrap{border-top:1px solid var(--grid);}
+.reg-inner{max-width:560px;margin:0 auto;text-align:center;padding:120px 20px;}
+.reg-title{font-family:'Noto Serif TC',serif;font-size:clamp(36px,5vw,58px);font-weight:900;margin-bottom:16px;}
+.reg-desc{font-size:14px;color:var(--muted);line-height:1.9;margin-bottom:44px;}
+.reg-btn{display:inline-flex;align-items:center;gap:10px;background:var(--text);color:#fff;padding:16px 44px;border-radius:100px;text-decoration:none;font-size:15px;font-weight:500;transition:all .2s;margin-bottom:20px;}
+.reg-btn:hover{background:#2a4a50;transform:translateY(-2px);}
+.reg-contact{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:0.08em;line-height:2.2;}
+footer{background:var(--text);color:rgba(255,255,255,0.45);padding:36px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.ft-title{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.08em;color:rgba(255,255,255,0.65);}
+.ft-info{font-family:'Space Mono',monospace;font-size:11px;}
+@media(max-width:768px){nav{padding:14px 16px;}.nav-links{display:none;}.section-wrap{padding:60px 20px;}.di img{max-height:55px !important;}.hero-center{padding:20px 16px;}.hero-title{font-size:clamp(38px,12vw,72px);}.hero-pills{flex-direction:column;align-items:center;gap:8px;}.pill{width:100%;max-width:260px;text-align:center;}.about-grid{grid-template-columns:1fr;gap:28px;}.about-photo{width:140px;height:140px;aspect-ratio:1/1;border-radius:50%;display:block;margin:0 auto;}.about-name{font-size:28px;text-align:center;}.about-name-en{text-align:center;}.about-p{font-size:13px;}.course-grid{grid-template-columns:1fr;}.cc-full{grid-column:1;}.outdoor-2col{grid-template-columns:1fr;}.dc-grid{grid-template-columns:1fr;}.footer{padding:24px 20px;flex-direction:column;align-items:flex-start;gap:6px;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-title">2026 科技藝術夏令營</div>
+  <div class="nav-links">
+    <a href="#about-wrap">關於老師</a>
+    <a href="#courses-wrap">課程介紹</a>
+    <a href="#discount-wrap">優惠方案</a>
+    <a href="#register-wrap">立即報名</a>
+  </div>
+</nav>
+
+<div class="grid-bg" id="hero">
+  <div class="desktop">
+    <!-- 彩虹線材 -->
+    <div class="di" style="top:7%;left:3%;transform:rotate(-8deg)">
+      <img src="Finder/5.png" style="height:90px;width:auto;">
+    </div>
+    <!-- 鱷魚夾線 -->
+    <div class="di" style="top:14%;left:20%;transform:rotate(6deg)">
+      <img src="Finder/6.png" style="height:75px;width:auto;">
+    </div>
+    <!-- 黏土人 art.png -->
+    <div class="di" style="top:8%;left:44%;transform:rotate(-4deg)">
+      <img src="Finder/7.png" style="height:95px;width:auto;">
+    </div>
+    <!-- REC record.wav -->
+    <div class="di" style="top:6%;right:18%;transform:rotate(7deg)">
+      <img src="Finder/8.png" style="height:80px;width:auto;">
+    </div>
+    <!-- audiobook.wav -->
+    <div class="di" style="top:12%;right:5%;transform:rotate(-5deg)">
+      <img src="Finder/9.png" style="height:70px;width:auto;">
+    </div>
+    <!-- Arduino -->
+    <div class="di" style="top:32%;left:2%;transform:rotate(9deg)">
+      <img src="Finder/10.png" style="height:85px;width:auto;">
+    </div>
+    <!-- 娃娃 -->
+    <div class="di" style="top:28%;right:4%;transform:rotate(-10deg)">
+      <img src="Finder/11.png" style="height:90px;width:auto;">
+    </div>
+    <!-- CD -->
+    <div class="di" style="top:42%;right:15%;transform:rotate(5deg)">
+      <img src="Finder/12.png" style="height:75px;width:auto;">
+    </div>
+    <!-- step into nature.mp4 -->
+    <div class="di" style="top:50%;left:4%;transform:rotate(-6deg)">
+      <img src="Finder/13.png" style="height:85px;width:auto;">
+    </div>
+    <!-- Natural.jpg -->
+    <div class="di" style="top:20%;left:32%;transform:rotate(3deg)">
+      <img src="Finder/14.png" style="height:75px;width:auto;">
+    </div>
+    <!-- Start -->
+    <div class="di" style="bottom:30%;left:18%;transform:rotate(-7deg)">
+      <img src="Finder/15.png" style="height:55px;width:auto;">
+    </div>
+    <!-- Finder -->
+    <div class="di" style="bottom:24%;right:6%;transform:rotate(8deg)">
+      <img src="Finder/16.png" style="height:72px;width:auto;">
+    </div>
+    <!-- IE Explore -->
+    <div class="di" style="bottom:18%;left:6%;transform:rotate(4deg)">
+      <img src="Finder/17.png" style="height:80px;width:auto;">
+    </div>
+    <!-- i圖示 -->
+    <div class="di" style="top:38%;left:16%;transform:rotate(-12deg)">
+      <img src="Finder/18.png" style="height:60px;width:auto;">
+    </div>
+    <!-- 耳機 -->
+    <div class="di" style="bottom:28%;right:20%;transform:rotate(6deg)">
+      <img src="Finder/19.png" style="height:80px;width:auto;">
+    </div>
+    <!-- Different materials.jpg -->
+    <div class="di" style="bottom:14%;left:30%;transform:rotate(-5deg)">
+      <img src="Finder/20.png" style="height:95px;width:auto;">
+    </div>
+    <!-- 貝殼 -->
+    <div class="di" style="top:22%;right:32%;transform:rotate(-8deg)">
+      <img src="Finder/21.png" style="height:72px;width:auto;">
+    </div>
+    <!-- technology.html -->
+    <div class="di" style="bottom:35%;right:3%;transform:rotate(11deg)">
+      <img src="Finder/22.png" style="height:65px;width:auto;">
+    </div>
+    <!-- 夾子 -->
+    <div class="di" style="bottom:20%;right:35%;transform:rotate(-9deg)">
+      <img src="Finder/23.png" style="height:65px;width:auto;">
+    </div>
+
+  </div>
+
+  <div class="hero-center">
+    <span class="hero-eyebrow">SUMMER 2026</span>
+    <h1 class="hero-title">
+      <span class="t1">科技藝術</span>
+      <span class="t2">夏令營</span>
+    </h1>
+    <p class="hero-byline">林巧 CHIAO LIN ／ 新店行道會</p>
+    <div class="hero-pills">
+      <span class="pill">大藝術家 7/6–7/10</span>
+      <span class="pill">說書人 7/27–7/31</span>
+      <span class="pill">戶外教學 6 場次</span>
+    </div>
+    <a href="#register-wrap" class="hero-btn">立即報名 →</a>
+  </div>
+</div>
+
+<div id="about-wrap">
+<div class="section-wrap">
+  <div class="sec-label">ABOUT THE TEACHER</div>
+  <div class="about-grid">
+    <img src="Finder/24.png" alt="林巧" class="about-photo">
+    <div>
+      <div class="about-name">林巧</div>
+      <div class="about-name-en">CHIAO LIN</div>
+      <p class="about-p">致力於聲音與科技跨域創作，擅長將音樂、影像、裝置、劇場整合為一。現就讀國立陽明交通大學音樂所（創作與科技組）及國立臺灣師範大學音樂系，攻讀雙碩士。</p>
+      <p class="about-p">具備超過十年音樂教學經驗，教學對象從5歲至成年人，涵蓋個人與團體班。曾任新竹成德高中國中部藝師，並多次帶領學生體驗聲音採集、電聲與錄音的完整創作流程。</p>
+      <p class="about-p">常以創作者身份參與各類藝術製作，作品涵蓋互動聲音裝置、音像、電聲及劇場，並於 C-LAB、師大、交大演藝廳等地展出。同時擔任執行製作、舞台監督、影音技術人員等職務，具備豐富的跨領域合作經驗。</p>
+      <div class="about-tags">
+        <span class="atag">聲音裝置</span>
+        <span class="atag">音像創作</span>
+        <span class="atag">Arduino</span>
+        <span class="atag">音樂教學 10yr+</span>
+        <span class="atag">交大 × 師大</span>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div id="courses-wrap">
+<div class="section-wrap">
+  <div class="sec-label">COURSES</div>
+  <div class="course-grid">
+    <div class="course-card">
+      <div class="cc-bar bar-art"></div>
+      <div class="cc-tag tag-art">國中以上 ／ 小六可報</div>
+      <div class="cc-name">《我是大藝術家！》</div>
+      <div class="cc-sub">聲音互動科技藝術體驗營</div>
+      <div class="cc-desc">製作一件百分之百由自己主導概念、親手規劃觸碰體驗、能夠互動的聲音裝置。結合聲音設計、美術手作與互動裝置設計，五天從零打造屬於自己的作品。</div>
+      <div class="cc-meta">
+        <div class="cc-row"><span class="cc-label">日期</span><span class="cc-val">7/6（日）– 7/10（四）</span></div>
+        <div class="cc-row"><span class="cc-label">時間</span><span class="cc-val">09:00 – 17:00</span></div>
+        <div class="cc-row"><span class="cc-label">原價</span><span class="p-art">4,500 元</span></div>
+        <div class="cc-row"><span class="cc-label">會友價</span><span class="cc-val" style="color:var(--art)">3,500 元</span></div>
+      </div>
+    </div>
+    <div class="course-card">
+      <div class="cc-bar bar-sound"></div>
+      <div class="cc-tag tag-sound">中年級以上</div>
+      <div class="cc-name">《我是說書人！》</div>
+      <div class="cc-sub">有聲書錄製體驗營</div>
+      <div class="cc-desc">把聲音放進書裡，體驗配音、錄音、混音的過程，製作自己的有聲書。課程結束後，所有人共同完成的有聲書將放上網路，隨時都能打開來聽。</div>
+      <div class="cc-meta">
+        <div class="cc-row"><span class="cc-label">日期</span><span class="cc-val">7/27（日）– 7/31（四）</span></div>
+        <div class="cc-row"><span class="cc-label">時間</span><span class="cc-val">09:00 – 17:00</span></div>
+        <div class="cc-row"><span class="cc-label">原價</span><span class="p-sound">4,000 元</span></div>
+        <div class="cc-row"><span class="cc-label">會友價</span><span class="cc-val" style="color:var(--sound)">2,800 元</span></div>
+      </div>
+    </div>
+    <div class="course-card cc-full">
+      <div class="cc-bar bar-outdoor"></div>
+      <div class="outdoor-2col">
+        <div>
+          <div class="cc-tag tag-outdoor">小一至國中，全齡</div>
+          <div class="cc-name">戶外教學｜藝術與生活探索</div>
+          <div class="cc-sub" style="margin-bottom:12px;">確認成團後才收費</div>
+          <div class="cc-desc">藝術不只在美術館裡。大自然的聲音是音樂，蝴蝶的翅膀是設計，展覽裡的裝置是科技與美感的結合。我們帶孩子去看、去聽、去摸；培養他們感受世界的眼睛。</div>
+          <div class="place-chips">
+            <span class="place-chip">千蝶谷</span>
+            <span class="place-chip">台灣昆蟲館</span>
+            <span class="place-chip">C-LAB</span>
+            <span class="place-chip">新北市美術館</span>
+            <span class="place-chip">北美館</span>
+            <span class="place-chip">奇岩攀岩館</span>
+          </div>
+        </div>
+        <div class="cc-meta" style="border-top:none;padding-top:0;">
+          <div class="cc-row"><span class="cc-label">場次</span><span class="cc-val">7/11、7/24、7/25<br>8/1、8/15、8/29</span></div>
+          <div class="cc-row"><span class="cc-label">時間</span><span class="cc-val">11:00 出發</span></div>
+          <div class="cc-row" style="margin-top:8px;"><span class="cc-label">原價</span><span class="p-outdoor">最高 3,500 元</span></div>
+          <div class="cc-row"><span class="cc-label">會友價</span><span class="cc-val" style="color:var(--outdoor)">最高 3,000 元</span></div>
+          <div style="font-size:11px;color:var(--muted);margin-top:8px;line-height:1.7;">滿 10 人成團</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="lunch-note">🍱 課程午餐與點心服務可加購，600 元 / 五天（自備者免收）</div>
+</div>
+</div>
+
+<div id="discount-wrap">
+<div class="section-wrap">
+  <div class="sec-label">DISCOUNT</div>
+  <div class="dc-grid">
+    <div class="dc-card dc-1">
+      <div class="dc-num">優惠一</div>
+      <div class="dc-title">手足與多堂進修</div>
+      <div class="dc-sub">課程 85 折</div>
+      <div class="dc-desc">同一個家庭報名兩位（含）以上孩子，或同一位孩子報名兩門（含）以上課程。金額最高的一門維持原價，其餘一律享有 85 折優惠。</div>
+    </div>
+    <div class="dc-card dc-2">
+      <div class="dc-num">優惠二</div>
+      <div class="dc-title">課程 ＋ 戶外教學</div>
+      <div class="dc-sub">雙重 85 折，可與優惠一疊加</div>
+      <div class="dc-desc">同一個孩子報名一門（含）以上課程，並同時報名戶外教學，戶外教學活動也享 85 折優惠。</div>
+      <div class="dc-note">午餐費用恕不折扣</div>
+    </div>
+    <div class="dc-card dc-3">
+      <div class="dc-num">感恩方案</div>
+      <div class="dc-title">教會全職同工</div>
+      <div class="dc-sub">專屬優惠價</div>
+      <div class="dc-desc">《我是大藝術家！》2,800 元<br>《我是說書人！》2,000 元<br><br>報名課程者戶外教學亦享 85 折。</div>
+      <div class="dc-note">恕不適用手足或多堂 85 折優惠</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div id="register-wrap" class="grid-bg">
+  <div class="reg-inner">
+    <div class="sec-label" style="justify-content:center;margin-bottom:32px;">REGISTRATION</div>
+    <h2 class="reg-title">立即報名</h2>
+    <p class="reg-desc">報名完成後請於 3 天內完成匯款。匯款後老師將於 1 個工作天內寄送確認信。若未收到，歡迎直接聯繫。</p>
+    <a href="https://linchiaooo.github.io/summer2026" class="reg-btn" target="_blank">前往報名表單 →</a>
+    <div class="reg-contact">林巧　0935-877-214<br>linchiaooo.hs11@nycu.edu.tw</div>
+  </div>
+</div>
+
+<footer>
+  <div class="ft-title">2026 科技藝術夏令營｜林巧</div>
+  <div class="ft-info">新店行道會　0935-877-214　linchiaooo.hs11@nycu.edu.tw</div>
+</footer>
+</body>
+</html>
