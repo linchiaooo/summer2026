@@ -79,57 +79,249 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(238,246,248,
 footer{background:var(--text);color:rgba(255,255,255,0.45);padding:36px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
 .ft-title{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.08em;color:rgba(255,255,255,0.65);}
 .ft-info{font-family:'Space Mono',monospace;font-size:11px;}
-@media(max-width:768px){nav{padding:14px 16px;}.nav-links{display:none;}.section-wrap{padding:60px 20px;}.hero-center{padding:28px 20px 40px;}.di img{max-height:50px !important;width:auto !important;}.hero-title{font-size:clamp(38px,12vw,72px);}.hero-pills{flex-direction:column;align-items:center;gap:8px;}.pill{width:100%;max-width:260px;text-align:center;}.about-grid{grid-template-columns:1fr !important;gap:24px;}.about-photo{width:120px !important;height:120px !important;aspect-ratio:unset !important;border-radius:50% !important;display:block;margin:0 auto;object-fit:cover;}.about-name{font-size:28px;text-align:center;}.about-name-en{text-align:center;}.course-grid{grid-template-columns:1fr;}.cc-full{grid-column:1;}.outdoor-2col{grid-template-columns:1fr;}.dc-grid{grid-template-columns:1fr;}.reg-inner{padding:60px 20px;}footer{padding:24px 20px;flex-direction:column;align-items:flex-start;gap:6px;}}
+@media(max-width:768px){nav{padding:14px 16px;}.nav-links{display:none;}.section-wrap{padding:60px 20px;}.hero-center{padding:28px 20px 40px;}.hero-title{font-size:clamp(38px,12vw,72px);}.hero-pills{flex-direction:column;align-items:center;gap:8px;}.pill{width:100%;max-width:260px;text-align:center;}.about-grid{grid-template-columns:1fr !important;gap:24px;}.about-photo{width:120px !important;height:120px !important;aspect-ratio:unset !important;border-radius:50% !important;display:block;margin:0 auto;object-fit:cover;}.about-name{font-size:28px;text-align:center;}.about-name-en{text-align:center;}.course-grid{grid-template-columns:1fr;}.cc-full{grid-column:1;}.outdoor-2col{grid-template-columns:1fr;}.dc-grid{grid-template-columns:1fr;}.reg-inner{padding:60px 20px;}footer{padding:24px 20px;flex-direction:column;align-items:flex-start;gap:6px;}}
 </style>
+
+
 
 <style>
 @media(max-width:768px){
-  /* 隱藏部分素材 */
-  #di-18, #di-21 { display:none; }
+  /* 隱藏：貝殼(已用di-21)、technology(di-22)、audiobook改用di-9小點綴 */
+  #di-22 { display:none; }
 
-  /* 頂部：往下移，不要太靠邊 */
-  #di-5  { top:12% !important; left:1% !important;  right:auto !important; bottom:auto !important; }
-  #di-5  img { height:90px !important; }
-  #di-8  { top:7% !important;  right:3% !important; left:auto !important;  bottom:auto !important; }
-  #di-8  img { height:70px !important; }
-  #di-9  { top:14% !important; right:1% !important; left:auto !important;  bottom:auto !important; }
-  #di-9  img { height:38px !important; }
+  /* 照你的排版截圖：素材大小有層次，位置有機散落 */
 
-  /* 中段左側 */
-  #di-10 { top:20% !important; left:0% !important;  right:auto !important; bottom:auto !important; }
-  #di-10 img { height:62px !important; }
-  #di-7  { top:47% !important; left:1% !important;  right:auto !important; bottom:auto !important; }
-  #di-7  img { height:65px !important; }
-  #di-13 { top:22% !important; left:0% !important;  right:auto !important; bottom:auto !important; }
-  #di-13 img { height:72px !important; }
-  /* 鱷魚夾線 - 上方右側 */
-  #di-6  { top:18% !important; right:1% !important; left:auto !important;  bottom:auto !important; }
-  #di-6  img { height:65px !important; }
+  /* 上方：廢物堆（大）+ Arduino（大）並排 */
+  #di-20 { top:4% !important; left:29% !important; right:auto !important; bottom:auto !important; transform:rotate(-3deg) !important; }
+  #di-20 img { height:85px !important; width:auto !important; }
 
-  /* 中段右側 */
-  #di-11 { top:32% !important; right:0% !important; left:auto !important;  bottom:auto !important; }
-  #di-11 img { height:60px !important; }
-  #di-16 { top:50% !important; right:1% !important; left:auto !important;  bottom:auto !important; }
-  #di-16 img { height:38px !important; }
-  /* 水面 Natural.jpg - 中右側 */
-  #di-14 { top:40% !important; right:0% !important; left:auto !important;  bottom:auto !important; }
-  #di-14 img { height:68px !important; }
-  #di-22 { top:66% !important; right:0% !important; left:auto !important;  bottom:auto !important; }
-  #di-22 img { height:48px !important; }
+  #di-10 { top:2% !important; left:56% !important; right:auto !important; bottom:auto !important; transform:rotate(2deg) !important; }
+  #di-10 img { height:78px !important; width:auto !important; }
 
-  /* 底部：分散開，不要擠在一起 */
-  #di-12 { bottom:18% !important; left:3% !important;  right:auto !important; top:auto !important; }
-  #di-12 img { height:50px !important; }
-  #di-15 { bottom:22% !important; left:35% !important; right:auto !important; top:auto !important; }
-  #di-15 img { height:35px !important; }
-  #di-17 { bottom:10% !important; left:2% !important;  right:auto !important; top:auto !important; }
-  #di-17 img { height:55px !important; }
-  #di-19 { bottom:20% !important; right:1% !important; left:auto !important;  top:auto !important; }
-  #di-19 img { height:72px !important; }
-  #di-20 { bottom:5% !important;  left:30% !important; right:auto !important; top:auto !important; }
-  #di-20 img { height:65px !important; }
-  #di-23 { bottom:8% !important;  right:3% !important; left:auto !important;  top:auto !important; }
-  #di-23 img { height:38px !important; }
+  /* 上左：水面（中） */
+  #di-14 { top:11% !important; left:6% !important; right:auto !important; bottom:auto !important; transform:rotate(4deg) !important; }
+  #di-14 img { height:72px !important; width:auto !important; }
+
+  /* 上右：Culture/貝殼（小） */
+  #di-21 { top:12% !important; right:3% !important; left:auto !important; bottom:auto !important; transform:rotate(-6deg) !important; }
+  #di-21 img { height:48px !important; width:auto !important; }
+
+  /* 中上左：彩虹線材（中） */
+  #di-5  { top:27% !important; left:0% !important; right:auto !important; bottom:auto !important; transform:rotate(-5deg) !important; }
+  #di-5  img { height:60px !important; width:auto !important; }
+
+  /* 中上右：REC（大，吸睛） */
+  #di-8  { top:22% !important; right:1% !important; left:auto !important; bottom:auto !important; transform:rotate(8deg) !important; }
+  #di-8  img { height:82px !important; width:auto !important; }
+
+  /* 中左：Start按鈕（小） */
+  #di-15 { top:42% !important; left:3% !important; right:auto !important; bottom:auto !important; transform:rotate(-4deg) !important; }
+  #di-15 img { height:38px !important; width:auto !important; }
+
+  /* 中右：IE（中） */
+  #di-17 { top:39% !important; right:2% !important; left:auto !important; bottom:auto !important; transform:rotate(5deg) !important; }
+  #di-17 img { height:62px !important; width:auto !important; }
+
+  /* 中下左：耳機線（中） */
+  #di-19 { top:52% !important; left:3% !important; right:auto !important; bottom:auto !important; transform:rotate(-7deg) !important; }
+  #di-19 img { height:68px !important; width:auto !important; }
+
+  /* 中下右：鱷魚夾線（中大） */
+  #di-6  { top:51% !important; right:1% !important; left:auto !important; bottom:auto !important; transform:rotate(6deg) !important; }
+  #di-6  img { height:75px !important; width:auto !important; }
+
+  /* 下左：貝殼（小） */
+  #di-9  { top:70% !important; left:4% !important; right:auto !important; bottom:auto !important; transform:rotate(-3deg) !important; }
+  #di-9  img { height:52px !important; width:auto !important; }
+
+  /* 下右：Finder（小） */
+  #di-16 { top:72% !important; right:2% !important; left:auto !important; bottom:auto !important; transform:rotate(4deg) !important; }
+  #di-16 img { height:44px !important; width:auto !important; }
+
+  /* 底：i圖示、夾子、草地、CD、娃娃 散落底部 */
+  #di-18 { top:80% !important; left:17% !important; right:auto !important; bottom:auto !important; transform:rotate(-2deg) !important; }
+  #di-18 img { height:40px !important; width:auto !important; }
+
+  #di-23 { top:87% !important; left:7% !important; right:auto !important; bottom:auto !important; transform:rotate(8deg) !important; }
+  #di-23 img { height:36px !important; width:auto !important; }
+
+  #di-13 { top:84% !important; left:30% !important; right:auto !important; bottom:auto !important; transform:rotate(3deg) !important; }
+  #di-13 img { height:72px !important; width:auto !important; }
+
+  #di-12 { top:85% !important; left:56% !important; right:auto !important; bottom:auto !important; transform:rotate(-8deg) !important; }
+  #di-12 img { height:58px !important; width:auto !important; }
+
+  #di-11 { top:83% !important; right:2% !important; left:auto !important; bottom:auto !important; transform:rotate(5deg) !important; }
+  #di-11 img { height:68px !important; width:auto !important; }
+
+  /* 黏土人：中間點綴 */
+  #di-7  { top:63% !important; left:1% !important; right:auto !important; bottom:auto !important; transform:rotate(-9deg) !important; }
+  #di-7  img { height:55px !important; width:auto !important; }
+}
+</style>
+<style>
+@media(max-width:768px){
+  #di-15,#di-18,#di-22{display:none;}
+
+  /* 廢物堆 → 標題正上方 */
+  #di-20{top:18% !important;left:18% !important;right:auto !important;bottom:auto !important;transform:rotate(-5deg) !important;}
+  #di-20 img{height:80px !important;width:auto !important;}
+
+  /* Arduino → 右上偏內 */
+  #di-10{top:5% !important;right:12% !important;left:auto !important;bottom:auto !important;transform:rotate(6deg) !important;}
+  #di-10 img{height:68px !important;width:auto !important;}
+
+  /* REC → 右中上 大 */
+  #di-8{top:18% !important;right:2% !important;left:auto !important;bottom:auto !important;transform:rotate(8deg) !important;}
+  #di-8 img{height:72px !important;width:auto !important;}
+
+  /* 水面 → 左上 */
+  #di-14{top:6% !important;left:2% !important;right:auto !important;bottom:auto !important;transform:rotate(-4deg) !important;}
+  #di-14 img{height:65px !important;width:auto !important;}
+
+  /* 彩虹線材 → 左中上 */
+  #di-5{top:30% !important;left:1% !important;right:auto !important;bottom:auto !important;transform:rotate(-7deg) !important;}
+  #di-5 img{height:52px !important;width:auto !important;}
+
+  /* 鱷魚夾線 → 右中 */
+  #di-6{top:36% !important;right:1% !important;left:auto !important;bottom:auto !important;transform:rotate(-6deg) !important;}
+  #di-6 img{height:68px !important;width:auto !important;}
+
+  /* IE → 右中下 */
+  #di-17{top:54% !important;right:3% !important;left:auto !important;bottom:auto !important;transform:rotate(5deg) !important;}
+  #di-17 img{height:55px !important;width:auto !important;}
+
+  /* 耳機 → 左中下 */
+  #di-19{top:58% !important;left:2% !important;right:auto !important;bottom:auto !important;transform:rotate(-9deg) !important;}
+  #di-19 img{height:65px !important;width:auto !important;}
+
+  /* 貝殼 → 左下 */
+  #di-21{top:70% !important;left:4% !important;right:auto !important;bottom:auto !important;transform:rotate(4deg) !important;}
+  #di-21 img{height:46px !important;width:auto !important;}
+
+  /* Finder → 右下 */
+  #di-16{top:72% !important;right:3% !important;left:auto !important;bottom:auto !important;transform:rotate(-4deg) !important;}
+  #di-16 img{height:44px !important;width:auto !important;}
+
+  /* 草地 → 底部左 */
+  #di-13{bottom:8% !important;left:5% !important;right:auto !important;top:auto !important;transform:rotate(3deg) !important;}
+  #di-13 img{height:52px !important;width:auto !important;}
+
+  /* CD → 底部中偏右，跟娃娃留空 */
+  #di-12{bottom:6% !important;left:42% !important;right:auto !important;top:auto !important;transform:rotate(-8deg) !important;}
+  #di-12 img{height:52px !important;width:auto !important;}
+
+  /* 娃娃 → 底部右 */
+  #di-11{bottom:6% !important;right:3% !important;left:auto !important;top:auto !important;transform:rotate(7deg) !important;}
+  #di-11 img{height:62px !important;width:auto !important;}
+
+  /* 夾子 → 底部中左 */
+  #di-23{bottom:12% !important;left:28% !important;right:auto !important;top:auto !important;transform:rotate(-5deg) !important;}
+  #di-23 img{height:32px !important;width:auto !important;}
+
+  /* 黏土人 → 隱藏，太多了 */
+  #di-7{display:none !important;}
+  #di-9{display:none !important;}
+}
+</style>
+<style>
+@media(max-width:768px){
+  #di-18{display:none;}
+
+  #di-14{top:42px !important;left:18px !important;right:auto !important;bottom:auto !important;transform:rotate(-5deg) !important;}
+  #di-14 img{height:50px !important;width:auto !important;}
+
+  #di-10{top:58px !important;left:280px !important;right:auto !important;bottom:auto !important;transform:rotate(6deg) !important;}
+  #di-10 img{height:42px !important;width:auto !important;}
+
+  #di-20{top:140px !important;left:70px !important;right:auto !important;bottom:auto !important;transform:rotate(-4deg) !important;}
+  #di-20 img{height:58px !important;width:auto !important;}
+
+  #di-17{top:118px !important;left:230px !important;right:auto !important;bottom:auto !important;transform:rotate(8deg) !important;}
+  #di-17 img{height:50px !important;width:auto !important;}
+
+  #di-5{top:228px !important;left:14px !important;right:auto !important;bottom:auto !important;transform:rotate(-9deg) !important;}
+  #di-5 img{height:26px !important;width:auto !important;}
+
+  #di-8{top:240px !important;left:160px !important;right:auto !important;bottom:auto !important;transform:rotate(10deg) !important;}
+  #di-8 img{height:62px !important;width:auto !important;}
+
+  #di-6{top:298px !important;left:300px !important;right:auto !important;bottom:auto !important;transform:rotate(-7deg) !important;}
+  #di-6 img{height:50px !important;width:auto !important;}
+
+  #di-7{top:358px !important;left:22px !important;right:auto !important;bottom:auto !important;transform:rotate(-7deg) !important;}
+  #di-7 img{height:62px !important;width:auto !important;}
+
+  #di-21{top:385px !important;left:298px !important;right:auto !important;bottom:auto !important;transform:rotate(5deg) !important;}
+  #di-21 img{height:40px !important;width:auto !important;}
+
+  #di-19{top:462px !important;left:55px !important;right:auto !important;bottom:auto !important;transform:rotate(-6deg) !important;}
+  #di-19 img{height:52px !important;width:auto !important;}
+
+  #di-16{top:478px !important;left:285px !important;right:auto !important;bottom:auto !important;transform:rotate(-5deg) !important;}
+  #di-16 img{height:40px !important;width:auto !important;}
+
+  #di-13{top:560px !important;left:18px !important;right:auto !important;bottom:auto !important;transform:rotate(5deg) !important;}
+  #di-13 img{height:42px !important;width:auto !important;}
+
+  #di-9{top:548px !important;left:220px !important;right:auto !important;bottom:auto !important;transform:rotate(-4deg) !important;}
+  #di-9 img{height:40px !important;width:auto !important;}
+
+  #di-22{top:648px !important;left:130px !important;right:auto !important;bottom:auto !important;transform:rotate(-4deg) !important;}
+  #di-22 img{height:36px !important;width:auto !important;}
+
+  #di-15{top:668px !important;left:22px !important;right:auto !important;bottom:auto !important;transform:rotate(-5deg) !important;}
+  #di-15 img{height:24px !important;width:auto !important;}
+
+  #di-11{top:672px !important;left:272px !important;right:auto !important;bottom:auto !important;transform:rotate(7deg) !important;}
+  #di-11 img{height:62px !important;width:auto !important;}
+
+  #di-23{top:762px !important;left:22px !important;right:auto !important;bottom:auto !important;transform:rotate(6deg) !important;}
+  #di-23 img{height:30px !important;width:auto !important;}
+
+  #di-12{top:760px !important;left:155px !important;right:auto !important;bottom:auto !important;transform:rotate(-9deg) !important;}
+  #di-12 img{height:50px !important;width:auto !important;}
+}
+</style>
+<style>
+@media(max-width:768px){
+  #di-18{display:none;}
+  #di-14{top:10.8vw !important;left:4.6vw !important;right:auto !important;bottom:auto !important;transform:rotate(-5deg) !important;}
+  #di-14 img{height:12.8vw !important;width:auto !important;}
+  #di-10{top:14.9vw !important;left:71.8vw !important;right:auto !important;bottom:auto !important;transform:rotate(6deg) !important;}
+  #di-10 img{height:10.8vw !important;width:auto !important;}
+  #di-20{top:35.9vw !important;left:17.9vw !important;right:auto !important;bottom:auto !important;transform:rotate(-4deg) !important;}
+  #di-20 img{height:14.9vw !important;width:auto !important;}
+  #di-17{top:30.3vw !important;left:59.0vw !important;right:auto !important;bottom:auto !important;transform:rotate(8deg) !important;}
+  #di-17 img{height:12.8vw !important;width:auto !important;}
+  #di-5{top:58.5vw !important;left:3.6vw !important;right:auto !important;bottom:auto !important;transform:rotate(-9deg) !important;}
+  #di-5 img{height:6.7vw !important;width:auto !important;}
+  #di-8{top:61.5vw !important;left:41.0vw !important;right:auto !important;bottom:auto !important;transform:rotate(10deg) !important;}
+  #di-8 img{height:15.9vw !important;width:auto !important;}
+  #di-6{top:76.4vw !important;left:76.9vw !important;right:auto !important;bottom:auto !important;transform:rotate(-7deg) !important;}
+  #di-6 img{height:12.8vw !important;width:auto !important;}
+  #di-7{top:91.8vw !important;left:5.6vw !important;right:auto !important;bottom:auto !important;transform:rotate(-7deg) !important;}
+  #di-7 img{height:15.9vw !important;width:auto !important;}
+  #di-21{top:98.7vw !important;left:76.4vw !important;right:auto !important;bottom:auto !important;transform:rotate(5deg) !important;}
+  #di-21 img{height:10.3vw !important;width:auto !important;}
+  #di-19{top:118.5vw !important;left:14.1vw !important;right:auto !important;bottom:auto !important;transform:rotate(-6deg) !important;}
+  #di-19 img{height:13.3vw !important;width:auto !important;}
+  #di-16{top:122.6vw !important;left:73.1vw !important;right:auto !important;bottom:auto !important;transform:rotate(-5deg) !important;}
+  #di-16 img{height:10.3vw !important;width:auto !important;}
+  #di-13{top:143.6vw !important;left:4.6vw !important;right:auto !important;bottom:auto !important;transform:rotate(5deg) !important;}
+  #di-13 img{height:10.8vw !important;width:auto !important;}
+  #di-9{top:140.5vw !important;left:56.4vw !important;right:auto !important;bottom:auto !important;transform:rotate(-4deg) !important;}
+  #di-9 img{height:10.3vw !important;width:auto !important;}
+  #di-22{top:166.2vw !important;left:33.3vw !important;right:auto !important;bottom:auto !important;transform:rotate(-4deg) !important;}
+  #di-22 img{height:9.2vw !important;width:auto !important;}
+  #di-15{top:171.3vw !important;left:5.6vw !important;right:auto !important;bottom:auto !important;transform:rotate(-5deg) !important;}
+  #di-15 img{height:6.2vw !important;width:auto !important;}
+  #di-11{top:172.3vw !important;left:69.7vw !important;right:auto !important;bottom:auto !important;transform:rotate(7deg) !important;}
+  #di-11 img{height:15.9vw !important;width:auto !important;}
+  #di-23{top:195.4vw !important;left:5.6vw !important;right:auto !important;bottom:auto !important;transform:rotate(6deg) !important;}
+  #di-23 img{height:7.7vw !important;width:auto !important;}
+  #di-12{top:194.9vw !important;left:39.7vw !important;right:auto !important;bottom:auto !important;transform:rotate(-9deg) !important;}
+  #di-12 img{height:12.8vw !important;width:auto !important;}
 }
 </style>
 </head>
@@ -367,5 +559,6 @@ footer{background:var(--text);color:rgba(255,255,255,0.45);padding:36px 40px;dis
   <div class="ft-title">2026 科技藝術夏令營｜林巧</div>
   <div class="ft-info">新店行道會　0935-877-214　linchiaooo.hs11@nycu.edu.tw</div>
 </footer>
+
 </body>
 </html>
