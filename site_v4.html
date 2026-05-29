@@ -79,7 +79,33 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(238,246,248,
 footer{background:var(--text);color:rgba(255,255,255,0.45);padding:36px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
 .ft-title{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.08em;color:rgba(255,255,255,0.65);}
 .ft-info{font-family:'Space Mono',monospace;font-size:11px;}
-@media(max-width:768px){nav{padding:14px 16px;}.nav-links{display:none;}.section-wrap{padding:72px 16px;}.about-grid{grid-template-columns:1fr;}.course-grid{grid-template-columns:1fr;}.cc-full{grid-column:1;}.outdoor-2col{grid-template-columns:1fr;}.dc-grid{grid-template-columns:1fr;}}
+@media(max-width:768px){nav{padding:14px 16px;}.nav-links{display:none;}.section-wrap{padding:60px 20px;}.hero-center{padding:60px 20px 40px;}.di img{max-height:50px !important;width:auto !important;}.hero-title{font-size:clamp(38px,12vw,72px);}.hero-pills{flex-direction:column;align-items:center;gap:8px;}.pill{width:100%;max-width:260px;text-align:center;}.about-grid{grid-template-columns:1fr !important;gap:24px;}.about-photo{width:120px !important;height:120px !important;aspect-ratio:unset !important;border-radius:50% !important;display:block;margin:0 auto;object-fit:cover;}.about-name{font-size:28px;text-align:center;}.about-name-en{text-align:center;}.course-grid{grid-template-columns:1fr;}.cc-full{grid-column:1;}.outdoor-2col{grid-template-columns:1fr;}.dc-grid{grid-template-columns:1fr;}.reg-inner{padding:60px 20px;}footer{padding:24px 20px;flex-direction:column;align-items:flex-start;gap:6px;}}
+</style>
+
+<style>
+@media(max-width:768px){
+  /* 隱藏太多或位置難處理的素材 */
+  #di-6, #di-14, #di-18, #di-21 { display:none; }
+  /* 頂部左右 */
+  #di-5  { top:3% !important;  left:2% !important;  right:auto !important; bottom:auto !important; }
+  #di-8  { top:4% !important;  right:3% !important; left:auto !important;  bottom:auto !important; }
+  #di-9  { top:11% !important; right:2% !important; left:auto !important;  bottom:auto !important; }
+  /* 中段左側（標題左邊縫隙） */
+  #di-10 { top:28% !important; left:0% !important;  right:auto !important; bottom:auto !important; }
+  #di-7  { top:42% !important; left:0% !important;  right:auto !important; bottom:auto !important; }
+  #di-13 { top:62% !important; left:0% !important;  right:auto !important; bottom:auto !important; }
+  /* 中段右側 */
+  #di-11 { top:30% !important; right:0% !important; left:auto !important;  bottom:auto !important; }
+  #di-16 { top:45% !important; right:0% !important; left:auto !important;  bottom:auto !important; }
+  #di-22 { top:60% !important; right:0% !important; left:auto !important;  bottom:auto !important; }
+  /* 底部左右 */
+  #di-12 { bottom:12% !important; left:2% !important;  right:auto !important; top:auto !important; }
+  #di-15 { bottom:8% !important;  left:20% !important; right:auto !important; top:auto !important; }
+  #di-17 { bottom:14% !important; right:3% !important; left:auto !important;  top:auto !important; }
+  #di-19 { bottom:6% !important;  right:2% !important; left:auto !important;  top:auto !important; }
+  #di-20 { bottom:3% !important;  left:45% !important; right:auto !important; top:auto !important; }
+  #di-23 { bottom:9% !important;  right:22% !important;left:auto !important;  top:auto !important; }
+}
 </style>
 </head>
 <body>
@@ -96,79 +122,79 @@ footer{background:var(--text);color:rgba(255,255,255,0.45);padding:36px 40px;dis
 <div class="grid-bg" id="hero">
   <div class="desktop">
     <!-- 彩虹線材 -->
-    <div class="di" style="top:7%;left:3%;transform:rotate(-8deg)">
+    <div id="di-5" class="di" style="top:7%;left:3%;transform:rotate(-8deg)">
       <img src="Finder/5.png" style="height:90px;width:auto;">
     </div>
     <!-- 鱷魚夾線 -->
-    <div class="di" style="top:14%;left:20%;transform:rotate(6deg)">
+    <div id="di-6" class="di" style="top:14%;left:20%;transform:rotate(6deg)">
       <img src="Finder/6.png" style="height:75px;width:auto;">
     </div>
     <!-- 黏土人 art.png -->
-    <div class="di" style="top:8%;left:44%;transform:rotate(-4deg)">
+    <div id="di-7" class="di" style="top:8%;left:44%;transform:rotate(-4deg)">
       <img src="Finder/7.png" style="height:95px;width:auto;">
     </div>
     <!-- REC record.wav -->
-    <div class="di" style="top:6%;right:18%;transform:rotate(7deg)">
+    <div id="di-8" class="di" style="top:6%;right:18%;transform:rotate(7deg)">
       <img src="Finder/8.png" style="height:80px;width:auto;">
     </div>
     <!-- audiobook.wav -->
-    <div class="di" style="top:12%;right:5%;transform:rotate(-5deg)">
+    <div id="di-9" class="di" style="top:12%;right:5%;transform:rotate(-5deg)">
       <img src="Finder/9.png" style="height:70px;width:auto;">
     </div>
     <!-- Arduino -->
-    <div class="di" style="top:32%;left:2%;transform:rotate(9deg)">
+    <div id="di-10" class="di" style="top:32%;left:2%;transform:rotate(9deg)">
       <img src="Finder/10.png" style="height:85px;width:auto;">
     </div>
     <!-- 娃娃 -->
-    <div class="di" style="top:28%;right:4%;transform:rotate(-10deg)">
+    <div id="di-11" class="di" style="top:28%;right:4%;transform:rotate(-10deg)">
       <img src="Finder/11.png" style="height:90px;width:auto;">
     </div>
     <!-- CD -->
-    <div class="di" style="top:42%;right:15%;transform:rotate(5deg)">
+    <div id="di-12" class="di" style="top:42%;right:15%;transform:rotate(5deg)">
       <img src="Finder/12.png" style="height:75px;width:auto;">
     </div>
     <!-- step into nature.mp4 -->
-    <div class="di" style="top:50%;left:4%;transform:rotate(-6deg)">
+    <div id="di-13" class="di" style="top:50%;left:4%;transform:rotate(-6deg)">
       <img src="Finder/13.png" style="height:85px;width:auto;">
     </div>
     <!-- Natural.jpg -->
-    <div class="di" style="top:20%;left:32%;transform:rotate(3deg)">
+    <div id="di-14" class="di" style="top:20%;left:32%;transform:rotate(3deg)">
       <img src="Finder/14.png" style="height:75px;width:auto;">
     </div>
     <!-- Start -->
-    <div class="di" style="bottom:30%;left:18%;transform:rotate(-7deg)">
+    <div id="di-15" class="di" style="bottom:30%;left:18%;transform:rotate(-7deg)">
       <img src="Finder/15.png" style="height:55px;width:auto;">
     </div>
     <!-- Finder -->
-    <div class="di" style="bottom:24%;right:6%;transform:rotate(8deg)">
+    <div id="di-16" class="di" style="bottom:24%;right:6%;transform:rotate(8deg)">
       <img src="Finder/16.png" style="height:72px;width:auto;">
     </div>
     <!-- IE Explore -->
-    <div class="di" style="bottom:18%;left:6%;transform:rotate(4deg)">
+    <div id="di-17" class="di" style="bottom:18%;left:6%;transform:rotate(4deg)">
       <img src="Finder/17.png" style="height:80px;width:auto;">
     </div>
     <!-- i圖示 -->
-    <div class="di" style="top:38%;left:16%;transform:rotate(-12deg)">
+    <div id="di-18" class="di" style="top:38%;left:16%;transform:rotate(-12deg)">
       <img src="Finder/18.png" style="height:60px;width:auto;">
     </div>
     <!-- 耳機 -->
-    <div class="di" style="bottom:28%;right:20%;transform:rotate(6deg)">
+    <div id="di-19" class="di" style="bottom:28%;right:20%;transform:rotate(6deg)">
       <img src="Finder/19.png" style="height:80px;width:auto;">
     </div>
     <!-- Different materials.jpg -->
-    <div class="di" style="bottom:14%;left:30%;transform:rotate(-5deg)">
+    <div id="di-20" class="di" style="bottom:14%;left:30%;transform:rotate(-5deg)">
       <img src="Finder/20.png" style="height:95px;width:auto;">
     </div>
     <!-- 貝殼 -->
-    <div class="di" style="top:22%;right:32%;transform:rotate(-8deg)">
+    <div id="di-21" class="di" style="top:22%;right:32%;transform:rotate(-8deg)">
       <img src="Finder/21.png" style="height:72px;width:auto;">
     </div>
     <!-- technology.html -->
-    <div class="di" style="bottom:35%;right:3%;transform:rotate(11deg)">
+    <div id="di-22" class="di" style="bottom:35%;right:3%;transform:rotate(11deg)">
       <img src="Finder/22.png" style="height:65px;width:auto;">
     </div>
     <!-- 夾子 -->
-    <div class="di" style="bottom:20%;right:35%;transform:rotate(-9deg)">
+    <div id="di-23" class="di" style="bottom:20%;right:35%;transform:rotate(-9deg)">
       <img src="Finder/23.png" style="height:65px;width:auto;">
     </div>
 
