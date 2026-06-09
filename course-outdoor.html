@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>戶外教學｜藝術與生活探索｜2026 科技藝術夏令營</title>
+<meta property="og:title" content="戶外教學｜藝術與生活探索｜2026 科技藝術夏令營">
+<meta property="og:description" content="藝術不只在美術館裡。帶孩子去看、去聽、去摸。全齡，6 場次，新店地區出發。">
+<meta property="og:image" content="https://linchiaooo.github.io/summer2026/Finder/og_image.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;900&family=Noto+Sans+TC:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap');
+:root{--bg:#EEF6F8;--bg2:#E4F2F5;--grid:#C5DDE3;--text:#1a2a2e;--muted:rgba(26,42,46,0.45);--white:#F8FDFE;--art:#A63D2F;--art-l:#F5DDD9;--sound:#2E7D52;--sound-l:#D4EDE0;--outdoor:#1A5F9E;--outdoor-l:#D2E4F5;--accent:#C8E8EE;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
+.grid-bg{background-color:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:40px 40px;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(238,246,248,0.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--grid);padding:14px 40px;display:flex;justify-content:space-between;align-items:center;}
+.nav-title{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.05em;}
+.nav-back{font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:0.08em;transition:color .2s;display:flex;align-items:center;gap:6px;}
+.nav-back:hover{color:var(--text);}
+.section-wrap{padding:80px 40px;max-width:900px;margin:0 auto;}
+.sec-label{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.3em;color:var(--muted);margin-bottom:40px;display:flex;align-items:center;gap:12px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--grid);}
+.page-hero{padding-top:120px;padding-bottom:60px;padding-left:40px;padding-right:40px;max-width:900px;margin:0 auto;}
+.ph-tag{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.15em;padding:3px 10px;border-radius:100px;display:inline-block;margin-bottom:20px;background:var(--outdoor-l);color:#144A7A;}
+.ph-title{font-family:'Noto Serif TC',serif;font-size:clamp(28px,5vw,48px);font-weight:900;line-height:1.15;margin-bottom:10px;}
+.ph-sub{font-size:14px;color:var(--muted);margin-bottom:32px;letter-spacing:0.05em;}
+.ph-meta{display:flex;flex-wrap:wrap;gap:12px;}
+.ph-pill{background:var(--white);border:1px solid var(--grid);border-radius:100px;padding:7px 16px;font-family:'Space Mono',monospace;font-size:11px;color:var(--text);letter-spacing:0.05em;}
+.ph-pill strong{color:var(--outdoor);}
+.cd-intro{font-size:15px;line-height:2.1;color:rgba(26,42,46,0.78);margin-bottom:40px;}
+.notice-box{background:var(--outdoor-l);border-radius:10px;padding:18px 22px;font-size:13px;color:#144A7A;line-height:1.9;margin-bottom:40px;}
+.notice-box strong{font-weight:600;}
+.place-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px;}
+.place-card{background:var(--white);border:1px solid var(--grid);border-radius:12px;padding:22px 22px;position:relative;overflow:hidden;}
+.place-bar{position:absolute;top:0;left:0;right:0;height:3px;background:var(--outdoor);}
+.place-emoji{font-size:26px;margin-bottom:10px;}
+.place-name{font-family:'Noto Serif TC',serif;font-size:15px;font-weight:600;margin-bottom:8px;line-height:1.4;}
+.place-desc{font-size:12px;color:rgba(26,42,46,0.65);line-height:1.9;margin-bottom:10px;}
+.place-link{display:inline-block;font-family:'Space Mono',monospace;font-size:10px;color:var(--outdoor);text-decoration:none;letter-spacing:0.08em;border-bottom:1px solid var(--outdoor-l);padding-bottom:1px;transition:color .2s;}
+.place-link:hover{color:#144A7A;}
+.cd-info-box{background:var(--white);border:1px solid var(--grid);border-radius:10px;padding:20px 24px;font-size:13px;color:rgba(26,42,46,0.7);line-height:1.9;}
+.cd-info-box strong{font-weight:600;color:var(--text);}
+.reg-btn{display:inline-flex;align-items:center;gap:10px;background:var(--outdoor);color:#fff;padding:14px 36px;border-radius:100px;text-decoration:none;font-size:14px;font-weight:500;transition:all .2s;margin-top:48px;}
+.reg-btn:hover{background:#144A7A;transform:translateY(-2px);}
+footer{background:var(--text);color:rgba(255,255,255,0.45);padding:36px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.ft-title{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.08em;color:rgba(255,255,255,0.65);}
+.ft-info{font-family:'Space Mono',monospace;font-size:11px;}
+@media(max-width:768px){
+  nav{padding:14px 16px;}
+  .page-hero{padding:100px 20px 40px;}
+  .section-wrap{padding:60px 20px;}
+  .place-grid{grid-template-columns:1fr 1fr;}
+  footer{padding:24px 20px;flex-direction:column;align-items:flex-start;gap:6px;}
+}
+@media(max-width:480px){
+  .place-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-title">2026 科技藝術夏令營</div>
+  <a href="site_v5.html" class="nav-back">← 回首頁</a>
+</nav>
+
+<div class="grid-bg" style="padding-top:60px;">
+  <div style="height:4px;background:var(--outdoor);"></div>
+</div>
+
+<div class="page-hero">
+  <div class="ph-tag">全齡　小一至國中</div>
+  <h1 class="ph-title">戶外教學<br>藝術與生活探索</h1>
+  <p class="ph-sub">確認成團後才收費</p>
+  <div class="ph-meta">
+    <span class="ph-pill">📅 7/11、7/24、7/25、8/1、8/15、8/29</span>
+    <span class="ph-pill">🕘 11:00 出發</span>
+    <span class="ph-pill">💰 最高 <strong>3,500 元</strong></span>
+    <span class="ph-pill">⛪ 會友價最高 <strong>3,000 元</strong></span>
+  </div>
+</div>
+
+<div style="background:var(--white);border-top:1px solid var(--grid);">
+<div class="section-wrap">
+
+  <div class="sec-label">ABOUT THIS PROGRAM</div>
+
+  <p class="cd-intro">藝術不只在美術館裡。大自然的聲音是音樂，蝴蝶的翅膀是設計，展覽裡的裝置是科技與美感的結合。每次活動都會安排導覽，並設計符合不同程度的學習單，讓體驗不只停留在當下，帶領孩子從體驗出發，進入藝術欣賞的世界。</p>
+
+  <div class="sec-label">PLANNED DESTINATIONS</div>
+
+  <div class="notice-box">
+    📌 以下為<strong>預計活動內容</strong>，各場次實際安排待報名人數確認（10 人成團）後進一步通知。7/1 報名截止，7/3 公布所有場次細節。
+  </div>
+
+  <div class="place-grid">
+
+    <div class="place-card">
+      <div class="place-bar"></div>
+      <div class="place-emoji">🦋</div>
+      <div class="place-name">千蝶谷（陽明山）</div>
+      <div class="place-desc">蝴蝶、獨角仙、溪流生態，戶外半日導覽體驗。</div>
+    </div>
+
+    <div class="place-card">
+      <div class="place-bar"></div>
+      <div class="place-emoji">🪲</div>
+      <div class="place-name">虎山親山步道</div>
+      <div class="place-desc">戶外生態探索。</div>
+    </div>
+
+    <div class="place-card">
+      <div class="place-bar"></div>
+      <div class="place-emoji">🎭</div>
+      <div class="place-name">C-LAB 我們正成為</div>
+      <div class="place-desc">當代科技藝術展覽導覽。展期至 8/16。</div>
+      <a href="https://clab.org.tw/events/we-are-becoming-guided-tours/" target="_blank" class="place-link">展覽資訊 →</a>
+    </div>
+
+    <div class="place-card">
+      <div class="place-bar"></div>
+      <div class="place-emoji">🖼️</div>
+      <div class="place-name">新北市美術館 發生什麼事？</div>
+      <div class="place-desc">互動教育型展覽，適合親子共同參與。展期至 11/8。</div>
+      <a href="https://ntcart.museum/exhibition_content.aspx?id=H2604001" target="_blank" class="place-link">展覽資訊 →</a>
+    </div>
+
+    <div class="place-card">
+      <div class="place-bar"></div>
+      <div class="place-emoji">🎨</div>
+      <div class="place-name">北美館 超現實主義：對話中的世界</div>
+      <div class="place-desc">百件奇幻藝術作品，帶孩子進入超現實的想像世界。展期至 8/30。</div>
+      <a href="https://www.tfam.museum/Exhibition/Exhibition_Special.aspx?ddlLang=zh-tw&id=808" target="_blank" class="place-link">展覽資訊 →</a>
+    </div>
+
+    <div class="place-card">
+      <div class="place-bar"></div>
+      <div class="place-emoji">🧗</div>
+      <div class="place-name">攀岩</div>
+      <div class="place-desc">有教練帶領的團體攀岩課程，挑戰自我極限。</div>
+    </div>
+
+  </div>
+
+  <div class="cd-info-box">
+    <strong>報名與收費說明：</strong>確認成團（滿 10 人）後才收費。7/1 報名截止，7/3 公布所有場次細節。每場費用依地點而異，最高 3,500 元（會友價最高 3,000 元）。
+  </div>
+
+  <a href="site_v5.html#register-wrap" class="reg-btn">立即報名 →</a>
+
+</div>
+</div>
+
+<footer>
+  <div class="ft-title">2026 科技藝術夏令營｜林巧</div>
+  <div class="ft-info">0935-877-214　linchiaooo.hs11@nycu.edu.tw</div>
+</footer>
+
+</body>
+</html>

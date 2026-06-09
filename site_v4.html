@@ -66,6 +66,59 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(238,246,248,
 .place-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;}
 .place-chip{font-size:11px;padding:3px 10px;background:rgba(26,95,158,0.08);color:#144A7A;border-radius:100px;font-family:'Space Mono',monospace;}
 .lunch-note{background:var(--white);border-radius:10px;padding:16px 22px;border:1px solid var(--grid);font-size:13px;color:var(--muted);line-height:1.8;}
+/* ── Course Detail Section ── */
+#course-detail-wrap{background:var(--bg);border-top:1px solid var(--grid);}
+.cd-block{margin-bottom:80px;}
+.cd-block:last-child{margin-bottom:0;}
+.cd-header{display:flex;align-items:baseline;gap:16px;margin-bottom:36px;}
+.cd-color-bar{width:4px;height:36px;border-radius:2px;flex-shrink:0;align-self:center;}
+.bar-art-v{background:var(--art);}.bar-sound-v{background:var(--sound);}.bar-outdoor-v{background:var(--outdoor);}
+.cd-title{font-family:'Noto Serif TC',serif;font-size:clamp(22px,3vw,30px);font-weight:900;}
+.cd-subtitle{font-size:13px;color:var(--muted);}
+.cd-intro{font-size:14px;line-height:2.1;color:rgba(26,42,46,0.78);margin-bottom:36px;max-width:720px;}
+.cd-layout{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:32px;}
+.cd-photo{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;border:1px solid var(--grid);}
+.cd-photo-placeholder{width:100%;aspect-ratio:4/3;border-radius:12px;border:2px dashed var(--grid);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:rgba(255,255,255,0.5);color:var(--muted);font-size:12px;font-family:'Space Mono',monospace;letter-spacing:0.08em;}
+.cd-photo-placeholder .ph-icon{font-size:28px;opacity:0.4;}
+.cd-skills{background:var(--white);border:1px solid var(--grid);border-radius:12px;padding:24px 28px;}
+.cd-skills-title{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.25em;color:var(--muted);margin-bottom:16px;}
+.cd-skill-item{display:flex;gap:12px;margin-bottom:14px;align-items:flex-start;}
+.cd-skill-item:last-child{margin-bottom:0;}
+.cd-skill-dot{width:6px;height:6px;border-radius:50%;margin-top:6px;flex-shrink:0;}
+.dot-art{background:var(--art);}.dot-sound{background:var(--sound);}.dot-outdoor{background:var(--outdoor);}
+.cd-skill-name{font-size:13px;font-weight:600;color:var(--text);margin-bottom:2px;}
+.cd-skill-desc{font-size:12px;color:rgba(26,42,46,0.65);line-height:1.8;}
+.cd-example{margin-top:8px;}
+.cd-example-title{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.25em;color:var(--muted);margin-bottom:14px;}
+.cd-example-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.cd-example-photo{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:8px;border:1px solid var(--grid);}
+.cd-example-placeholder{width:100%;aspect-ratio:16/10;border-radius:8px;border:2px dashed var(--grid);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:rgba(255,255,255,0.5);color:var(--muted);font-size:10px;font-family:'Space Mono',monospace;letter-spacing:0.08em;}
+.cd-example-placeholder .ph-icon{font-size:20px;opacity:0.35;}
+.cd-video-link{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-size:12px;color:var(--art);text-decoration:none;font-family:'Space Mono',monospace;letter-spacing:0.08em;border-bottom:1px solid var(--art-l);padding-bottom:2px;transition:color .2s;}
+.cd-video-link:hover{color:#7A2D22;}
+.cd-outdoor-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:32px;}
+.cd-place-card{background:var(--white);border:1px solid var(--grid);border-radius:10px;padding:18px 20px;position:relative;overflow:hidden;}
+.cd-place-bar{position:absolute;top:0;left:0;right:0;height:3px;background:var(--outdoor);}
+.cd-place-emoji{font-size:22px;margin-bottom:8px;}
+.cd-place-name{font-family:'Noto Serif TC',serif;font-size:14px;font-weight:600;margin-bottom:4px;}
+.cd-place-date{font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:0.1em;margin-bottom:8px;}
+.cd-place-desc{font-size:12px;color:rgba(26,42,46,0.65);line-height:1.8;}
+.cd-place-link{display:inline-block;margin-top:8px;font-family:'Space Mono',monospace;font-size:10px;color:var(--outdoor);text-decoration:none;letter-spacing:0.08em;border-bottom:1px solid var(--outdoor-l);}
+.cd-info-box{background:var(--white);border:1px solid var(--grid);border-radius:10px;padding:20px 24px;font-size:13px;color:rgba(26,42,46,0.7);line-height:1.9;margin-top:24px;}
+.cd-info-box strong{font-weight:600;color:var(--text);}
+.cd-divider{border:none;border-top:1px solid var(--grid);margin:80px 0;}
+@media(max-width:768px){
+  .cd-layout{grid-template-columns:1fr;}
+  .cd-outdoor-grid{grid-template-columns:1fr 1fr;}
+  .cd-example-grid{grid-template-columns:1fr;}
+}
+@media(max-width:480px){
+  .cd-outdoor-grid{grid-template-columns:1fr;}
+}
+.cc-more{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-family:'Space Mono',monospace;font-size:11px;text-decoration:none;letter-spacing:0.08em;padding:7px 16px;border-radius:100px;border:1px solid;transition:all .2s;}
+.cc-more-art{color:var(--art);border-color:var(--art-l);}.cc-more-art:hover{background:var(--art);color:#fff;}
+.cc-more-sound{color:var(--sound);border-color:var(--sound-l);}.cc-more-sound:hover{background:var(--sound);color:#fff;}
+.cc-more-outdoor{color:var(--outdoor);border-color:var(--outdoor-l);}.cc-more-outdoor:hover{background:var(--outdoor);color:#fff;}
 #discount-wrap{background:var(--white);border-top:1px solid var(--grid);}
 .dc-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
 .dc-card{border-radius:14px;padding:26px 28px;}
@@ -443,7 +496,7 @@ footer{background:var(--text);color:rgba(255,255,255,0.45);padding:36px 40px;dis
 <div class="section-wrap">
   <div class="sec-label">ABOUT THE TEACHER</div>
   <div class="about-grid">
-    <img src="Finder/25.png" alt="林巧" class="about-photo">
+    <img src="Finder/24.png" alt="林巧" class="about-photo">
     <div>
       <div class="about-name">林巧</div>
       <div class="about-name-en">CHIAO LIN</div>
@@ -478,6 +531,7 @@ footer{background:var(--text);color:rgba(255,255,255,0.45);padding:36px 40px;dis
         <div class="cc-row"><span class="cc-label">原價</span><span class="p-art">4,500 元</span></div>
         <div class="cc-row"><span class="cc-label">會友價</span><span class="cc-val" style="color:var(--art)">3,500 元</span></div>
       </div>
+      <a href="course-art.html" target="_blank" class="cc-more cc-more-art">了解更多 →</a>
     </div>
     <div class="course-card">
       <div class="cc-bar bar-sound"></div>
@@ -491,6 +545,7 @@ footer{background:var(--text);color:rgba(255,255,255,0.45);padding:36px 40px;dis
         <div class="cc-row"><span class="cc-label">原價</span><span class="p-sound">4,000 元</span></div>
         <div class="cc-row"><span class="cc-label">會友價</span><span class="cc-val" style="color:var(--sound)">2,800 元</span></div>
       </div>
+      <a href="course-sound.html" target="_blank" class="cc-more cc-more-sound">了解更多 →</a>
     </div>
     <div class="course-card cc-full">
       <div class="cc-bar bar-outdoor"></div>
@@ -502,11 +557,11 @@ footer{background:var(--text);color:rgba(255,255,255,0.45);padding:36px 40px;dis
           <div class="cc-desc">藝術不只在美術館裡。大自然的聲音是音樂，蝴蝶的翅膀是設計，展覽裡的裝置是科技與美感的結合。我們帶孩子去看、去聽、去摸；培養他們感受世界的眼睛。</div>
           <div class="place-chips">
             <span class="place-chip">千蝶谷</span>
-            <span class="place-chip">台灣昆蟲館</span>
+            <span class="place-chip">虎山親山步道</span>
             <span class="place-chip">C-LAB</span>
             <span class="place-chip">新北市美術館</span>
             <span class="place-chip">北美館</span>
-            <span class="place-chip">奇岩攀岩館</span>
+            <span class="place-chip">攀岩</span>
           </div>
         </div>
         <div class="cc-meta" style="border-top:none;padding-top:0;">
@@ -515,6 +570,7 @@ footer{background:var(--text);color:rgba(255,255,255,0.45);padding:36px 40px;dis
           <div class="cc-row" style="margin-top:8px;"><span class="cc-label">原價</span><span class="p-outdoor">最高 3,500 元</span></div>
           <div class="cc-row"><span class="cc-label">會友價</span><span class="cc-val" style="color:var(--outdoor)">最高 3,000 元</span></div>
           <div style="font-size:11px;color:var(--muted);margin-top:8px;line-height:1.7;">滿 10 人成團</div>
+          <a href="course-outdoor.html" target="_blank" class="cc-more cc-more-outdoor" style="margin-top:14px;">了解更多 →</a>
         </div>
       </div>
     </div>
@@ -522,6 +578,7 @@ footer{background:var(--text);color:rgba(255,255,255,0.45);padding:36px 40px;dis
   <div class="lunch-note">🍱 課程午餐與點心服務可加購，600 元 / 五天（自備者免收）</div>
 </div>
 </div>
+
 
 <div id="discount-wrap">
 <div class="section-wrap">

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《我是大藝術家！》課程詳情｜2026 科技藝術夏令營</title>
+<meta property="og:title" content="《我是大藝術家！》｜2026 科技藝術夏令營">
+<meta property="og:description" content="聲音互動科技藝術體驗營。五天從零打造屬於自己的互動聲音裝置。7/6–7/10，新店地區。">
+<meta property="og:image" content="https://linchiaooo.github.io/summer2026/Finder/og_image.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;900&family=Noto+Sans+TC:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap');
+:root{--bg:#EEF6F8;--bg2:#E4F2F5;--grid:#C5DDE3;--text:#1a2a2e;--muted:rgba(26,42,46,0.45);--white:#F8FDFE;--art:#A63D2F;--art-l:#F5DDD9;--sound:#2E7D52;--sound-l:#D4EDE0;--outdoor:#1A5F9E;--outdoor-l:#D2E4F5;--accent:#C8E8EE;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
+.grid-bg{background-color:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:40px 40px;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(238,246,248,0.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--grid);padding:14px 40px;display:flex;justify-content:space-between;align-items:center;}
+.nav-title{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.05em;}
+.nav-back{font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:0.08em;transition:color .2s;display:flex;align-items:center;gap:6px;}
+.nav-back:hover{color:var(--text);}
+.section-wrap{padding:100px 40px;max-width:900px;margin:0 auto;}
+.sec-label{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.3em;color:var(--muted);margin-bottom:48px;display:flex;align-items:center;gap:12px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--grid);}
+
+/* page hero */
+.page-hero{padding-top:120px;padding-bottom:60px;padding-left:40px;padding-right:40px;max-width:900px;margin:0 auto;}
+.ph-tag{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.15em;padding:3px 10px;border-radius:100px;display:inline-block;margin-bottom:20px;background:var(--art-l);color:#7A2D22;}
+.ph-title{font-family:'Noto Serif TC',serif;font-size:clamp(32px,5vw,52px);font-weight:900;line-height:1.1;margin-bottom:10px;}
+.ph-sub{font-size:14px;color:var(--muted);margin-bottom:32px;letter-spacing:0.05em;}
+.ph-meta{display:flex;flex-wrap:wrap;gap:12px;}
+.ph-pill{background:var(--white);border:1px solid var(--grid);border-radius:100px;padding:7px 16px;font-family:'Space Mono',monospace;font-size:11px;color:var(--text);letter-spacing:0.05em;}
+.ph-pill strong{color:var(--art);}
+
+/* content */
+.cd-intro{font-size:15px;line-height:2.1;color:rgba(26,42,46,0.78);margin-bottom:48px;}
+.cd-skills{background:var(--white);border:1px solid var(--grid);border-radius:14px;padding:32px 36px;margin-bottom:32px;}
+.cd-skills-title{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.25em;color:var(--muted);margin-bottom:24px;}
+.cd-skill-item{display:flex;gap:14px;margin-bottom:20px;align-items:flex-start;}
+.cd-skill-item:last-child{margin-bottom:0;}
+.cd-skill-dot{width:6px;height:6px;border-radius:50%;margin-top:7px;flex-shrink:0;background:var(--art);}
+.cd-skill-name{font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px;}
+.cd-skill-desc{font-size:13px;color:rgba(26,42,46,0.65);line-height:1.9;}
+.cd-example-title{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.25em;color:var(--muted);margin-bottom:16px;}
+.cd-video-link{display:inline-flex;align-items:center;gap:8px;margin-top:8px;font-size:13px;color:var(--art);text-decoration:none;font-family:'Space Mono',monospace;letter-spacing:0.05em;border-bottom:1px solid var(--art-l);padding-bottom:2px;transition:color .2s;}
+.cd-video-link:hover{color:#7A2D22;}
+.cd-info-box{background:var(--white);border:1px solid var(--grid);border-radius:10px;padding:20px 24px;font-size:13px;color:rgba(26,42,46,0.7);line-height:1.9;margin-top:32px;}
+.cd-info-box strong{font-weight:600;color:var(--text);}
+.reg-btn{display:inline-flex;align-items:center;gap:10px;background:var(--art);color:#fff;padding:14px 36px;border-radius:100px;text-decoration:none;font-size:14px;font-weight:500;transition:all .2s;margin-top:48px;}
+.reg-btn:hover{background:#7A2D22;transform:translateY(-2px);}
+.price-block{background:var(--art-l);border-radius:14px;padding:24px 28px;margin-bottom:32px;display:flex;gap:32px;flex-wrap:wrap;align-items:center;}
+.price-item{display:flex;flex-direction:column;gap:4px;}
+.price-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.15em;color:#7A2D22;}
+.price-val{font-family:'Noto Serif TC',serif;font-size:22px;font-weight:700;color:var(--art);}
+.price-val.member{color:#7A2D22;font-size:18px;}
+footer{background:var(--text);color:rgba(255,255,255,0.45);padding:36px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.ft-title{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.08em;color:rgba(255,255,255,0.65);}
+.ft-info{font-family:'Space Mono',monospace;font-size:11px;}
+@media(max-width:768px){
+  nav{padding:14px 16px;}
+  .page-hero{padding:100px 20px 40px;}
+  .section-wrap{padding:60px 20px;}
+  .cd-skills{padding:24px 20px;}
+  .price-block{gap:20px;}
+  footer{padding:24px 20px;flex-direction:column;align-items:flex-start;gap:6px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-title">2026 科技藝術夏令營</div>
+  <a href="site_v5.html" class="nav-back">← 回首頁</a>
+</nav>
+
+<div class="grid-bg" style="min-height:8px;padding-top:60px;">
+  <div style="height:4px;background:var(--art);"></div>
+</div>
+
+<div class="page-hero">
+  <div class="ph-tag">國中以上 ／ 小六可報</div>
+  <h1 class="ph-title">《我是大藝術家！》</h1>
+  <p class="ph-sub">聲音互動科技藝術體驗營</p>
+  <div class="ph-meta">
+    <span class="ph-pill">📅 7/6（一）– 7/10（五）</span>
+    <span class="ph-pill">🕘 09:00 – 17:00</span>
+    <span class="ph-pill">💰 原價 <strong>4,500 元</strong></span>
+    <span class="ph-pill">⛪ 會友價 <strong>3,500 元</strong></span>
+  </div>
+</div>
+
+<div style="background:var(--white);border-top:1px solid var(--grid);">
+<div class="section-wrap">
+
+  <div class="sec-label">ABOUT THIS COURSE</div>
+
+  <p class="cd-intro">這是一門科技藝術創作的體驗課程，結合聲音設計、美術手作、互動裝置設計，孩子將在五天裡，從零開始發想概念，親手規劃並打造出一件能夠跟觀眾玩互動的實體聲音裝置。這裡沒有標準答案的說明書，孩子必須從零思考主題，進行聲音設計，並將自己的裝置做成任何想要的樣貌。並學習如何展示自己的創意，練習向觀眾介紹作品。</p>
+
+  <div class="sec-label">WHAT THEY WILL LEARN</div>
+
+  <div class="cd-skills">
+    <div class="cd-skills-title">孩子將在課堂中學到、運用什麼</div>
+    <div class="cd-skill-item">
+      <div class="cd-skill-dot"></div>
+      <div>
+        <div class="cd-skill-name">電容式觸控感應</div>
+        <div class="cd-skill-desc">學習感應器運作的物理原理。利用銅箔膠帶接線，讓手指一碰物件就能觸發感應。</div>
+      </div>
+    </div>
+    <div class="cd-skill-item">
+      <div class="cd-skill-dot"></div>
+      <div>
+        <div class="cd-skill-name">電路路徑規劃</div>
+        <div class="cd-skill-desc">練習運用單芯線與雙面導電銅箔膠帶，規劃電流的走線，把零件隱藏在物件身後。</div>
+      </div>
+    </div>
+    <div class="cd-skill-item">
+      <div class="cd-skill-dot"></div>
+      <div>
+        <div class="cd-skill-name">數位音訊編碼</div>
+        <div class="cd-skill-desc">透過記憶卡為不同的觸控點進行聲音檔案的編碼配對。</div>
+      </div>
+    </div>
+    <div class="cd-skill-item">
+      <div class="cd-skill-dot"></div>
+      <div>
+        <div class="cd-skill-name">聲音設計、聲音採集與編輯</div>
+        <div class="cd-skill-desc">練習現場錄音、採集環境音，並學習基本的音檔編輯。</div>
+      </div>
+    </div>
+    <div class="cd-skill-item">
+      <div class="cd-skill-dot"></div>
+      <div>
+        <div class="cd-skill-name">造型與複合媒材（外殼捏塑與質地設計）</div>
+        <div class="cd-skill-desc">面對豐富的媒材（石膏、娃娃、廢布和輕黏土等），孩子要親手捏塑外殼、設計觀眾摸到的表面質地。學習讓聲音與作品的形體完美融合。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-label">EXAMPLE WORK</div>
+
+  <div class="cd-example-title">老師作品示範</div>
+  <p style="font-size:13px;color:rgba(26,42,46,0.65);line-height:1.9;margin-bottom:16px;">此為老師作品示範，所用技術與營隊課程內容略有差異，每位學員的創作概念與形式皆由自己決定。</p>
+  <img src="Finder/展覽佈景.jpg" alt="老師作品示範：玄關場景裝置" style="width:100%;max-width:600px;border-radius:12px;border:1px solid var(--grid);display:block;margin-bottom:8px;">
+  <a href="https://youtube.com/shorts/TS6odb6sxmA" target="_blank" class="cd-video-link">▶ 觀看作品示範影片 →</a>
+
+  <div class="cd-info-box">
+    <strong>建議自備：</strong>鉛筆盒、喜歡的繪畫用筆、慣用剪刀、有線耳機（非必備）
+  </div>
+
+  <a href="site_v5.html#register-wrap" class="reg-btn">立即報名 →</a>
+
+</div>
+</div>
+
+<footer>
+  <div class="ft-title">2026 科技藝術夏令營｜林巧</div>
+  <div class="ft-info">0935-877-214　linchiaooo.hs11@nycu.edu.tw</div>
+</footer>
+
+</body>
+</html>
