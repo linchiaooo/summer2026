@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
@@ -135,8 +135,8 @@ input:focus,select:focus,textarea:focus{border-color:rgba(0,0,0,0.28);}
     </div>
     <div style="margin-bottom:12px;font-size:11px;font-weight:500;letter-spacing:0.15em;color:var(--muted);">可報名活動</div>
     <div class="course-cards">
-      <div class="course-card"><div class="cc-top"><div class="cc-info"><div class="cc-tag tag-art">國中以上 ／ 小六可報</div><div class="cc-name">《我是大藝術家！》</div><div class="cc-sub">聲音互動科技藝術體驗營</div><div class="cc-meta"><strong>7/6（日）– 7/10（四）</strong>　09:00–17:00</div></div><button class="cc-add-btn" onclick="openModal('art')">＋ 加入</button></div></div>
-      <div class="course-card"><div class="cc-top"><div class="cc-info"><div class="cc-tag tag-sound">中年級以上</div><div class="cc-name">《我是說書人！》</div><div class="cc-sub">有聲書錄製體驗營</div><div class="cc-meta"><strong>7/27（日）– 7/31（四）</strong>　09:00–17:00</div></div><button class="cc-add-btn" onclick="openModal('sound')">＋ 加入</button></div></div>
+      <div class="course-card"><div class="cc-top"><div class="cc-info"><div class="cc-tag tag-art">國中以上 ／ 小六可報</div><div class="cc-name">《我是大藝術家！》</div><div class="cc-sub">聲音互動科技藝術體驗營</div><div class="cc-meta"><strong>7/6（一）– 7/10（五）</strong>　09:00–17:00</div></div><button class="cc-add-btn" onclick="openModal('art')">＋ 加入</button></div></div>
+      <div class="course-card"><div class="cc-top"><div class="cc-info"><div class="cc-tag tag-sound">中年級以上</div><div class="cc-name">《我是說書人！》</div><div class="cc-sub">有聲書錄製體驗營</div><div class="cc-meta"><strong>7/27（一）– 7/31（五）</strong>　09:00–17:00</div></div><button class="cc-add-btn" onclick="openModal('sound')">＋ 加入</button></div></div>
       <div class="course-card"><div class="cc-top"><div class="cc-info"><div class="cc-tag tag-outdoor">小一至國中，全齡</div><div class="cc-name">戶外教學｜藝術與生活探索</div><div class="cc-sub">確認成團後才收費</div><div class="cc-meta"><strong>7/11、7/24、7/25、8/1、8/15、8/29</strong><br>11:00 出發，時間依活動而定</div></div><button class="cc-add-btn" onclick="openModal('outdoor')">＋ 加入</button></div></div>
     </div>
     <div id="cart-section" style="display:none;">
@@ -244,8 +244,7 @@ function recalc(){
     return `<div class="cart-item"><div class="ci-info"><div class="ci-course">${CNAMES[item.type]}${p.discount?' <span style="font-size:10px;background:#FFF8EE;color:#854F0B;padding:1px 6px;border-radius:4px;">85折</span>':''}</div><div class="ci-student">學員：${item.name}　${item.grade}</div></div><div class="ci-price ${item.type}">${p.outdoor?'成團後收費':p.price.toLocaleString()+' 元'}</div><button class="ci-remove" onclick="removeCart(${item.id})">×</button></div>`;
   }).join('');
   let lines='',total=0;
-  cart.forEach(item=>{const p=pm[item.id];if(p.outdoor){lines+=`<div class="ps-line"><span class="name">${CNAMES[item.type]}（${item.name}）</span><span class="amt">成團後收費</span></div>`;}else{lines+=`<div class="ps-line"><span class="name">${CNAMES[item.type]}（${item.name}）${p.discount?' 85折':''}</span><span class="amt">${p.price.toLocaleString()} 元</span></div>`;total+=p.price;}});
-  document.getElementById('ps-lines').innerHTML=lines;
+  cart.forEach(item=>{const p=pm[item.id];if(p.outdoor){lines+=`<div class="ps-line"><span class="name">${CNAMES[item.type]}（${item.name}）</span><span class="amt">成團後收費</span></div>`;}else{lines+=`<div class="ps-line"><span class="name">${CNAMES[item.type]}（${item.name}）${p.discount?' 85折':''}</span><span class="amt">${p.price.toLocaleString()} 元</span></div>`;total+=p.price;if(item.lunch==='yes'){lines+=`<div class="ps-line"><span class="name">　午餐與點心（${item.name}）</span><span class="amt">600 元</span></div>`;total+=600;}}});
   const ho=cart.some(i=>i.type==='outdoor');
   document.getElementById('ps-total-amt').textContent=total.toLocaleString()+' 元'+(ho?'＋戶外教學':'');
   window._pdata={pm,total};
@@ -345,7 +344,7 @@ function buildConfirm(){
   document.getElementById('confirm-content').innerHTML=html;
   let lines='',total=0;
   const ho=cart.some(i=>i.type==='outdoor');
-  cart.forEach(item=>{const p=pm[item.id];if(p.outdoor){lines+=`<div class="ps-line"><span class="name">${CNAMES[item.type]}（${item.name}）</span><span class="amt">成團後收費</span></div>`;}else{lines+=`<div class="ps-line"><span class="name">${CNAMES[item.type]}（${item.name}）${p.discount?' 85折':''}</span><span class="amt">${p.price.toLocaleString()} 元</span></div>`;total+=p.price;}});
+  cart.forEach(item=>{const p=pm[item.id];if(p.outdoor){lines+=`<div class="ps-line"><span class="name">${CNAMES[item.type]}（${item.name}）</span><span class="amt">成團後收費</span></div>`;}else{lines+=`<div class="ps-line"><span class="name">${CNAMES[item.type]}（${item.name}）${p.discount?' 85折':''}</span><span class="amt">${p.price.toLocaleString()} 元</span></div>`;total+=p.price;if(item.lunch==='yes'){lines+=`<div class="ps-line"><span class="name">　午餐與點心（${item.name}）</span><span class="amt">600 元</span></div>`;total+=600;}}});
   document.getElementById('confirm-ps-lines').innerHTML=lines;
   document.getElementById('confirm-total').textContent=total.toLocaleString()+' 元'+(ho?'＋戶外教學':'');
   document.getElementById('confirm-ps-note').innerHTML=ho?'＊ 戶外教學確認成團後另行通知收費':'';
@@ -359,7 +358,7 @@ async function submitForm(){
   const id=getId();
   const idL={general:'一般報名',member:'新店行道會會友',worker:'教會全職同工'};
   const pm=calcPrices();let total=0;
-  cart.filter(i=>i.type!=='outdoor').forEach(i=>{total+=pm[i.id].price;});
+  cart.filter(i=>i.type!=='outdoor').forEach(i=>{total+=pm[i.id].price;if(i.lunch==='yes')total+=600;});
   const summary=cart.map(item=>{
     const p=pm[item.id];
     let s=`${CNAMES[item.type]}／${item.name}（${item.grade}）：${p.outdoor?'成團後收費':p.price.toLocaleString()+' 元'}`;
